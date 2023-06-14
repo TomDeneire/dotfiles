@@ -1,0 +1,43 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/tdeneire/projects/code/dotfiles
+- /home/tdeneire/Dropbox/code/dotfiles
+- /home/tdeneire/Dropbox/code/nvim
+- /home/tdeneire/Dropbox/brocade/source
+- /home/tdeneire/Dropbox/brocade/packages/go
+- /home/tdeneire/projects/code/nvim
+- /home/tdeneire/projects/code/js/fablepictor
+- /home/tdeneire/Dropbox/brocade/packages/lorca
+- /home/tdeneire/projects/websites/tomdeneire.github.io
+- /home/tdeneire/projects/code/js/pictor
+- /home/tdeneire/Dropbox/code/js/pictor
+- /home/tdeneire/Dropbox/websites/brainmanager/development/brainmanager
+- /home/tdeneire/Dropbox/InformationScience
+- /home/tdeneire/Dropbox/code/js/fablepictor
+- /home/tdeneire/Dropbox/websites/mondieux/development
+- /home/tdeneire/projects/code/js/neovimmm
+- /home/tdeneire/Dropbox/code/js/neovimmm
+- /home/tdeneire/projects/websites/mondieux/development
+- /home/tdeneire/projects/websites/brainmanager/development/brainmanager
+- /home/tdeneire/projects/code/go/tiro
+- /home/tdeneire/Dropbox/code/ts/kata-machine
+- /home/tdeneire/projects/code/ts/kata-machine
+- /home/tdeneire/projects/computer_programming
+- /home/tdeneire/Dropbox/code/lua/notify-diagnostics.nvim
+- /home/tdeneire/projects/code/lua/notify-diagnostics.nvim
+- /home/tdeneire/Dropbox/code/go/ulpia
+- /home/tdeneire/projects/code/go/ulpia
+- /home/tdeneire/projects/code/lua/kickstart.nvim
+- /home/tdeneire/Dropbox/code/go/tiro
+- /home/tdeneire/projects/InformationScience
+- /home/tdeneire/projects/code/js/sqlite
+- /home/tdeneire/Dropbox/websites/tomdeneire.github.io
+startuppopupversion: 5
+customcommandshistory:
+- qa!
+- wqa!
+- q
+- git commit --amend --no-edit
+- qq:q
+- git push --force
+hidecommandlog: false
