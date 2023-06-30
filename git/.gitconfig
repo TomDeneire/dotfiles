@@ -3,3 +3,5 @@
 	name = Tom Deneire
 [credential]
 	helper = store
+[alias]
+	enforce = push --force-with-lease
