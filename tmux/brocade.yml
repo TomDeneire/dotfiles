@@ -39,19 +39,15 @@ root: ~/
 startup_window: 1
 
 # Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
-startup_pane: 2
+startup_pane: 1
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 attach: true
 
 windows:
   - :
-      # layout: 38df,213x54,0,0{46x54,0,0,0,166x54,47,0,1}
-      layout: 3470,213x54,0,0{36x54,0,0,0,176x54,37,0,3}
-      root: /home/tdeneire/Dropbox/brocade/source/data
-      panes:
-        - cd && clear && export PS1=""
-        - nvim
+      - cd /home/tdeneire/Dropbox/brocade/source/data
+      - nvim
   - :
       - ssh dev.anet.be
   - 󱆃:
