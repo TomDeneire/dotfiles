@@ -36,19 +36,24 @@ root: ~/
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: 2
+startup_window: 1
 
 # Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
-# startup_pane: 1
+startup_pane: 2
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 attach: true
 
 windows:
   - :
-      - cd /home/tdeneire/Dropbox/brocade/source/data
-      - nvim
+      # layout: 38df,213x54,0,0{46x54,0,0,0,166x54,47,0,1}
+      layout: 3470,213x54,0,0{36x54,0,0,0,176x54,37,0,3}
+      root: /home/tdeneire/Dropbox/brocade/source/data
+      panes:
+        - cd && clear && export PS1=""
+        - nvim
   - :
-      - tmux select-pane -P 'fg=brightgreen'
       - ssh dev.anet.be
-  - 󱆃: bash
+  - 󱆃:
+      - tmux set -pt:2 window-style fg=brightgreen
+      - clear
