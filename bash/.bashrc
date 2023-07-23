@@ -134,8 +134,8 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF -l -h -a --hyperlink'
-# alias l='exa -lha --icons --color=never'
+# alias l='ls -CF -l -h -a --hyperlink'
+alias l='exa -lha --icons'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -206,3 +206,5 @@ eval "$(atuin init bash)"
 bind -x '"\C-r": __atuin_history'
 
 [ -f "/home/tdeneire/.ghcup/env" ] && source "/home/tdeneire/.ghcup/env" # ghcup-env
+
+export EDITOR='nvim'
