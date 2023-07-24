@@ -50,3 +50,4 @@ windows:
       - nvim
   - 󱆃:
       - cd /home/tdeneire/projects/code
+      - clear
