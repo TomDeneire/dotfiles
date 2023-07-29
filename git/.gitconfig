@@ -5,3 +5,4 @@
 	helper = store
 [alias]
 	enforce = push --force-with-lease
+	branch-description = git-branch-description

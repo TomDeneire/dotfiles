@@ -1,10 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/tdeneire/Dropbox/code/dotfiles
-    - /home/tdeneire/Dropbox/brocade/source
-    - /home/tdeneire/Dropbox/brocade/packages/go
     - /home/tdeneire/Dropbox/code/nvim
     - /home/tdeneire/Dropbox/websites/confident_coding
+    - /home/tdeneire/Dropbox/brocade/source
+    - /home/tdeneire/Dropbox/brocade/packages/go
     - /home/tdeneire/projects/code/dotfiles
     - /home/tdeneire/projects/code/js/neovimmm
     - /home/tdeneire/Dropbox/code/lua/spunkshui.nvim
