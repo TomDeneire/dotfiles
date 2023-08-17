@@ -45,9 +45,9 @@ startup_pane: 1
 attach: true
 
 windows:
-  - :
+  - nvim:
       - cd /home/tdeneire/projects/code
       - nvim
-  - 󱆃:
+  - bash:
       - cd /home/tdeneire/projects/code
       - clear

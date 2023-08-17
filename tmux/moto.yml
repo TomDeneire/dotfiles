@@ -45,9 +45,9 @@ startup_pane: 1
 attach: true
 
 windows:
-  - :
+  - moto:
       - ssh anet.be
       - clear
-  - 󱆃:
+  - bash:
       - tmux set -pt:1 window-style fg=red
       - clear

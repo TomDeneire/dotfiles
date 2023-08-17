@@ -45,11 +45,11 @@ startup_pane: 1
 attach: true
 
 windows:
-  - :
+  - nvim:
       - cd /home/tdeneire/Dropbox/brocade/source/data
       - nvim
-  - :
+  - presto:
       - ssh dev.anet.be
-  - 󱆃:
+  - bash:
       - tmux set -pt:2 window-style fg=green
       - clear

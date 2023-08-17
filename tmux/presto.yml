@@ -45,10 +45,10 @@ startup_pane: 1
 attach: true
 
 windows:
-  - :
+  - presto:
       - ssh dev.anet.be
       - clear
       - w
-  - 󱆃:
+  - bash:
       - tmux set -pt:1 window-style fg=green
       - clear
