@@ -135,9 +135,8 @@ alias rm='gio trash'
 alias cpwd="pwd | tr -d '\n' | xargs qtechng clipboard set && echo $(pwd | tr -d '\n') 'copied to clipboard'"
 alias lg='lazygit'
 alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
-alias t="tiro tui search"
+alias ts="tiro tui search"
 alias tn="tiro tui take"
-alias ts="npx ts-node"
 alias tmuxk="tmux kill-server"
 
 #
@@ -186,6 +185,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=/usr/local/lib/nodejs/node-v18.8.0-linux-x64/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/vscode-langservers-extracted/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/:$PATH
+
+# ~/.tmux/plugins
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# ~/.config/tmux/plugins
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
