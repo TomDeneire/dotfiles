@@ -138,6 +138,7 @@ alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
 alias ts="tiro tui search"
 alias tn="tiro tui take"
 alias tmuxk="tmux kill-server"
+alias cat="batcat --style=plain"
 
 #
 # Add an "alert" alias for long running commands.  Use like so:
