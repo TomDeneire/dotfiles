@@ -136,7 +136,7 @@ alias cpwd="pwd | tr -d '\n' | xargs qtechng clipboard set && echo $(pwd | tr -d
 alias lg='lazygit'
 alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
 alias ts="tiro tui search"
-alias tn="tiro tui take"
+alias tt="tiro tui take"
 alias tmuxk="tmux kill-server"
 alias cat="batcat --style=plain"
 
