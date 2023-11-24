@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "lazygit",
+            "type": "shell",
+            "command": "lazygit",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true, // does not seem to work
+                "clear": true,
+                "close": true
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+        },
+        {
+            "label": "qcmd-1",
+            "command": "${command:qtech.ciFile}"
+        },
+        {
+            "label": "qcmd-2",
+            "command": "${command:workbench.action.focusActiveEditorGroup}"
+        },
+        {
+            "label": "qcmd-3",
+            "command": "${command:workbench.action.focusActiveEditorGroup}"
+        },
+        {
+            "label": "qcmd-4",
+            "command": "${workbench.action.terminal.focus}"
+        },
+        {
+            "label": "ronny",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "qcmd-4",
+                "lazygit",
+            ],
+        }
+    ]
+}

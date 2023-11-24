@@ -1,0 +1,263 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "vscodeWorkspaceSwitcher.paths": [
+        "/home/tdeneire"
+    ],
+    "vscodeWorkspaceSwitcher.showInActivityBar": true,
+    "breadcrumbs.enabled": true,
+    "editor.renderWhitespace": "none",
+    "window.menuBarVisibility": "classic",
+    "workbench.statusBar.visible": true,
+    "editor.renderControlCharacters": true,
+    "editor.minimap.enabled": false,
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.panel.opensMaximized": "preserve",
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#393836",
+        "statusBar.noFolderBackground": "#393836",
+        "editor.lineHighlightBackground": "#393836",
+        "tab.activeBackground": "#393836",
+        "tab.inactiveBackground": "#393836",
+        "titleBar.activeBackground": "#393836",
+        "titleBar.inactiveBackground": "#393836",
+        "panel.background": "#393836",
+        "sideBar.background": "#393836",
+        "menu.background": "#393836",
+        "terminal.background": "#393836",
+        "badge.background": "#393836",
+        "breadcrumb.background": "#393836",
+        "dropdown.background": "#393836",
+        "activityBar.background": "#393836",
+        "peekViewTitle.background": "#393836",
+        "editorWidget.background": "#393836",
+        "commandCenter.activeBackground": "#393836",
+        "editorGroup.emptyBackground": "#393836",
+        "editorGroupHeader.tabsBackground": "#393836",
+        "panelSectionHeader.background": "#393836",
+        "editorWidget.border": "#d4d4d4",
+        "tab.activeForeground": "#99c794",
+        "tab.inactiveForeground": "#d4d4d4",
+        "editor.background": "#303030",
+        "editorError.foreground": "#C34043",
+        "editor.selectionBackground": "#C34043",
+        "editor.selectionForeground": "#d4d4d4",
+        "breadcrumb.foreground": "#d4d4d4",
+    },
+    "editor.rulers": [
+        80
+    ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+    },
+    "git.enableSmartCommit": true,
+    "search.collapseResults": "alwaysExpand",
+    "git.confirmSync": false,
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "jupyter.askForKernelRestart": false,
+    "workbench.editorAssociations": {
+        // "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/bin/python3.11",
+    "workbench.editor.enablePreview": true,
+    "editor.bracketPairColorization.enabled": true,
+    "files.associations": {
+        "*.txt": "plaintext",
+        "*.x": "xfile"
+    },
+    "window.zoomLevel": 4,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "haskell.manageHLS": "GHCup",
+    "[haskell]": {
+        "editor.defaultFormatter": "haskell.haskell",
+    },
+    "binocular.general.additionalSearchLocations": [
+        "~/home/Dropbox/projects"
+    ],
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": false,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "c",
+                "c"
+            ],
+            "commands": [
+                "editor.action.commentLine"
+            ],
+            "silent": true
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "C",
+            ],
+            "after": [
+                "c",
+                "$"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "L",
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H",
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "Y",
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "t",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "t",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "t",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "t",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.files.newUntitledFile"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "f",
+                "f"
+            ],
+            "commands": [
+                "fzf-quick-open.runFzfSearchPwd"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "t",
+                "t"
+            ],
+            "commands": [
+                "fzf-quick-open.runFzfFilePwd"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "n",
+            ],
+            "commands": [
+                ":noh",
+            ],
+            "silent": false
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "g"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": [
+                        "lazygit"
+                    ]
+                }
+            ],
+            "silent": false
+        }
+    ],
+    "vscode-neovim.neovimExecutablePaths.linux": "/home/tdeneire/bin/nvim",
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingBrackets": "never",
+    "editor.lineNumbers": "relative",
+    "errorLens.statusBarMessageEnabled": false,
+    "errorLens.statusBarColorsEnabled": true,
+    "errorLens.messageEnabled": true,
+    "git.openRepositoryInParentFolders": "always",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1,
+        "vscodevim.vim": 1
+    },
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.fullScreen": true,
+    "zenMode.restore": true,
+    "zenMode.centerLayout": true,
+    "gitlens.mode.active": "zen",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "editor.wordWrap": "on",
+    "fzf-quick-open.ripgrepSearchStyle": "Smart case",
+    "fzf-quick-open.findDirectoriesCmd": "fd --type d",
+    "security.workspace.trust.startupPrompt": "never",
+    "window.restoreFullscreen": true,
+    "window.newWindowDimensions": "maximized",
+}
