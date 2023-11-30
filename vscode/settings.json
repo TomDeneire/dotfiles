@@ -6,7 +6,6 @@
     "vscodeWorkspaceSwitcher.showInActivityBar": true,
     "breadcrumbs.enabled": true,
     "editor.renderWhitespace": "none",
-    "window.menuBarVisibility": "classic",
     "workbench.statusBar.visible": true,
     "editor.renderControlCharacters": true,
     "editor.minimap.enabled": false,
@@ -25,7 +24,7 @@
         "panel.background": "#393836",
         "sideBar.background": "#393836",
         "menu.background": "#393836",
-        "terminal.background": "#393836",
+        "terminal.background": "#303030",
         "badge.background": "#393836",
         "breadcrumb.background": "#393836",
         "dropdown.background": "#393836",
@@ -44,6 +43,9 @@
         "editor.selectionBackground": "#C34043",
         "editor.selectionForeground": "#d4d4d4",
         "breadcrumb.foreground": "#d4d4d4",
+        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
     },
     "editor.rulers": [
         80
@@ -58,9 +60,6 @@
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
     "jupyter.askForKernelRestart": false,
-    "workbench.editorAssociations": {
-        // "*.ipynb": "jupyter.notebook.ipynb"
-    },
     "go.toolsManagement.autoUpdate": true,
     "security.workspace.trust.untrustedFiles": "open",
     "python.defaultInterpreterPath": "/bin/python3.11",
@@ -70,7 +69,7 @@
         "*.txt": "plaintext",
         "*.x": "xfile"
     },
-    "window.zoomLevel": 4,
+    "window.zoomLevel": 3,
     "diffEditor.ignoreTrimWhitespace": false,
     "haskell.manageHLS": "GHCup",
     "[haskell]": {
@@ -82,9 +81,11 @@
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": false,
+    "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.leader": "<space>",
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#C34043",
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -93,6 +94,32 @@
             ],
             "after": [
                 "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "q"
+            ],
+            "after": [
+                "<Nop>"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
             ]
         }
     ],
@@ -106,12 +133,24 @@
                 "editor.action.commentLine"
             ],
             "silent": true
-        },
+        }
     ],
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-o>": false
+    },
     "vim.normalModeKeyBindings": [
         {
             "before": [
-                "C",
+                "q"
+            ],
+            "after": [
+                "<Nop>"
+            ]
+        },
+        {
+            "before": [
+                "C"
             ],
             "after": [
                 "c",
@@ -122,7 +161,39 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "L",
+                "<c-k>"
+            ],
+            "commands": [
+                "cursorPageUp"
+            ]
+        },
+        {
+            "before": [
+                "<c-j>"
+            ],
+            "commands": [
+                "cursorPageDown"
+            ]
+        },
+        {
+            "before": [
+                "<c-p>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<c-f>"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "L"
             ],
             "after": [
                 "$"
@@ -144,6 +215,31 @@
                 "y",
                 "$"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "e",
+                "r",
+                "m"
+            ],
+            "commands": [
+                "terminalHere.create"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "o",
+                "l",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.openRecent"
+            ],
+            "silent": true
         },
         {
             "before": [
@@ -232,9 +328,9 @@
             "silent": false
         }
     ],
-    "vscode-neovim.neovimExecutablePaths.linux": "/home/tdeneire/bin/nvim",
-    "vscode-neovim.useCtrlKeysForInsertMode": false,
-    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    // "vscode-neovim.neovimExecutablePaths.linux": "/home/tdeneire/bin/nvim",
+    // "vscode-neovim.useCtrlKeysForInsertMode": false,
+    // "vscode-neovim.useCtrlKeysForNormalMode": false,
     "editor.autoClosingQuotes": "never",
     "editor.autoClosingBrackets": "never",
     "editor.lineNumbers": "relative",
@@ -248,7 +344,6 @@
     },
     "zenMode.hideStatusBar": false,
     "zenMode.hideLineNumbers": false,
-    "zenMode.fullScreen": true,
     "zenMode.restore": true,
     "zenMode.centerLayout": true,
     "gitlens.mode.active": "zen",
@@ -260,4 +355,5 @@
     "security.workspace.trust.startupPrompt": "never",
     "window.restoreFullscreen": true,
     "window.newWindowDimensions": "maximized",
+    "workbench.colorTheme": "Default Dark+",
 }

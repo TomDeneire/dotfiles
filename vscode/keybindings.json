@@ -6,7 +6,7 @@
     },
     {
         "key": "ctrl+b",
-        "command": "qtech.ciFile",
+        "command": "qtech.ciFile"
     },
     {
         "key": "ctrl+[BracketRight]",
@@ -44,10 +44,6 @@
     {
         "key": "ctrl+alt+q",
         "command": "qtech.gotoPosition"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "qtech.revealDir"
     },
     {
         "key": "ctrl+j",
@@ -217,5 +213,23 @@
         "key": "ctrl+d",
         "command": "-list.focusPageDown",
         "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-codeium.openCodeiumCommand",
+        "when": "codeium.commandEnabled && editorTextFocus && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-extension.vim_ctrl+t",
+        "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.terminal.toggleTerminal"
     }
 ]
