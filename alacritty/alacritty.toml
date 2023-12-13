@@ -1,0 +1,53 @@
+[colors.primary]
+background = "#303030"
+foreground = "#d4d4d4"
+
+[font]
+builtin_box_drawing = false
+size = 13.0
+
+# [font.bold]
+# family = "monospace"
+# style = "Bold"
+#
+# [font.bold_italic]
+# family = "monospace"
+# style = "Bold Italic"
+#
+# [font.italic]
+# family = "monospace"
+# style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
+
+[window]
+dynamic_padding = false
+startup_mode = "Maximized"
+title = "Alacritty"
+decorations = "none"
+
+[window.padding]
+x = 350
+y = 0
+
+[colors.normal]
+black = "#000000"
+red = "#f44747"
+green = "#99c794"
+yellow = "#fac863"
+blue = "#569cd6"
+magenta = "#c594c5"
+cyan = "#62b3b2"
+white = "#dddddd"
+
+[colors.bright]
+black = "#767676"
+red = "#f44747"
+green = "#99c794"
+yellow = "#fac863"
+blue = "#7bbad8"
+magenta = "#c594c5"
+cyan = "#62b3b2"
+white = "#ffffff"
