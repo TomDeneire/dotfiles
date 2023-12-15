@@ -3,7 +3,7 @@ local mux = wezterm.mux
 
 local config = {}
 
-config.font = wezterm.font('DejaVuSansMono')
+config.font = wezterm.font('monospace')
 config.line_height = 1.1
 config.window_decorations = "RESIZE"
 config.window_padding = {
