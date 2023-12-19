@@ -17,6 +17,9 @@ config.enable_tab_bar = false
 
 config.font_size = 22.0
 
+config.front_end = "WebGpu"
+config.webgpu_force_fallback_adapter = false
+
 
 config.colors = {
     -- The default text color
@@ -97,9 +100,9 @@ config.colors = {
 
 
 
-wezterm.on("gui-startup", function()
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():toggle_fullscreen()
-end)
+-- wezterm.on("startup", function()
+--     local tab, pane, window = mux.spawn_window(cmd or {})
+--     window:gui_window():toggle_fullscreen()
+-- end)
 
 return config
