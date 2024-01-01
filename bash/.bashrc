@@ -187,6 +187,12 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=/usr/local/lib/nodejs/node-v18.8.0-linux-x64/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/vscode-langservers-extracted/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/:$PATH
 
+export PATH=/home/tdeneire/bin:$PATH
+
+export PATH=/home/tdeneire/projects/code/bash:$PATH
+
+export BROCADE_REGISTRY=/home/tdeneire/registry.json
+
 # ~/.tmux/plugins
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
