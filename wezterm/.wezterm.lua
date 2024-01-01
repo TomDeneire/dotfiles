@@ -7,7 +7,7 @@ config.font = wezterm.font('monospace')
 config.line_height = 1.1
 config.window_decorations = "RESIZE"
 config.window_padding = {
-    left = "20%",
+    left = "21%",
     right = 0,
     top = 0,
     bottom = 0
@@ -15,7 +15,7 @@ config.window_padding = {
 
 config.enable_tab_bar = false
 
-config.font_size = 22.0
+config.font_size = 22.5
 
 config.front_end = "WebGpu"
 config.webgpu_force_fallback_adapter = false
