@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# ble.sh
+[[ $- == *i* ]] && source /home/tdeneire/bin/blesh --noattach --rcfile /home/tdeneire/.blerc
+
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
@@ -223,3 +226,6 @@ if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneir
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/tdeneire/google-cloud-sdk/completion.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/completion.bash.inc'; fi
+
+# ble.sh
+[[ ${BLE_VERSION-} ]] && ble-attach
