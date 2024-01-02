@@ -207,12 +207,6 @@ export T_SESSION_NAME_INCLUDE_PARENT="true"
 
 eval "$(zoxide init bash)"
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-export ATUIN_NOBIND="true"
-eval "$(atuin init bash)"
-# bind to ctrl-r, add any other bindings you want here too
-bind -x '"\C-r": __atuin_history'
-
 [ -f "/home/tdeneire/.ghcup/env" ] && source "/home/tdeneire/.ghcup/env" # ghcup-env
 
 export EDITOR='nvim'
@@ -229,3 +223,9 @@ if [ -f '/home/tdeneire/google-cloud-sdk/completion.bash.inc' ]; then . '/home/t
 
 # ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach
+
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+export ATUIN_NOBIND="true"
+eval "$(atuin init bash)"
+# bind to ctrl-r, add any other bindings you want here too
+bind -x '"\C-r": __atuin_history'
