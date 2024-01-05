@@ -240,6 +240,8 @@ bleopt prompt_status_line=
 
 #bleopt edit_marker=$'\e[94m[ble: %s]\e[m'
 #bleopt edit_marker_error=$'\e[91m[ble: %s]\e[m'
+bleopt edit_marker=$'[ble: %s]'
+bleopt edit_marker_error=$'[ble: %s]'
 
 
 ## "exec_errexit_mark" specifies the format of the mark to show the exit status
@@ -247,6 +249,7 @@ bleopt prompt_status_line=
 ## exit status will not be shown.  The value can contain ANSI escape sequences.
 
 #bleopt exec_errexit_mark=$'\e[91m[ble: exit %d]\e[m'
+bleopt exec_errexit_mark=$'[ble: exit %d]'
 
 
 ## "exec_elapsed_mark" specifies the format of the command execution time
@@ -607,7 +610,7 @@ bleopt prompt_status_line=
 ##   auto-complete is enabled after TAB completions.  Otherwise, auto-complete
 ##   is disabled after TAB completions.
 
-#bleopt complete_auto_complete_opts=suppress-after-complete
+bleopt complete_auto_complete_opts=suppress-after-complete
 
 
 ## The setting "complete_auto_menu" controls the delay of "auto-menu".  When a
@@ -986,8 +989,8 @@ bleopt highlight_syntax=
 ## the suggestion, and <TAB> is assigned to the normal TAB completion which is
 ## independent of auto-complete.
 
-# ble-bind -m auto_complete -f C-i auto_complete/insert
-# ble-bind -m auto_complete -f TAB auto_complete/insert
+ble-bind -m auto_complete -f C-i auto_complete/insert
+ble-bind -m auto_complete -f TAB auto_complete/insert
 
 ##-----------------------------------------------------------------------------
 ## Settings for Emacs mode
