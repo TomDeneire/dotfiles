@@ -195,6 +195,7 @@ export PATH=/home/tdeneire/bin:$PATH
 export PATH=/home/tdeneire/projects/code/bash:$PATH
 
 export BROCADE_REGISTRY=/home/tdeneire/registry.json
+export PYTHONPATH=/home/tdeneire/py3
 
 # ~/.tmux/plugins
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
