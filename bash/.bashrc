@@ -49,32 +49,32 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
-else
-    color_prompt=
-fi
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
 fi
 
-black_bold='\[\033[01;30m\]'
-red_bold='\[\033[01;31m\]' 
+# black_bold='\[\033[01;30m\]'
+# red_bold='\[\033[01;31m\]'
 green_bold='\[\033[01;32m\]'
-yellow_bold='\[\033[01;33m\]' 
+# yellow_bold='\[\033[01;33m\]'
 blue_bold='\[\033[01;34m\]'  
-purple_bold='\[\033[01;35m\]'
-cyan_bold='\[\033[01;36m\]' 
-white_bold='\[\033[01;37m\]'
-black='\[\033[00;30m\]'  
-red='\[\033[00;31m\]' 
+# purple_bold='\[\033[01;35m\]'
+# cyan_bold='\[\033[01;36m\]'
+# white_bold='\[\033[01;37m\]'
+# black='\[\033[00;30m\]'
+# red='\[\033[00;31m\]'
 green='\[\033[00;32m\]'
-yellow='\[\033[00;33m\]'
-blue='\[\033[00;34m\]' 
-purple='\[\033[00;35m\]'
-cyan='\[\033[00;36m\]' 
-white='\[\033[00;37m\]'
+# yellow='\[\033[00;33m\]'
+# blue='\[\033[00;34m\]'
+# purple='\[\033[00;35m\]'
+# cyan='\[\033[00;36m\]'
+# white='\[\033[00;37m\]'
 clear='\[\033[00m\]'
 
 battery_status() {
@@ -82,7 +82,7 @@ battery_status() {
 }
 
 git_status() {
-    MYSTATUS=$(git status -sb --porcelain 2> /dev/null| head -n 1 | cut -d " " -f 2-)
+    MYSTATUS=$(git status -sb --porcelain=v1 2> /dev/null| head -n 1 | cut -d " " -f 2-)
     if [ "$MYSTATUS" != "" ]; then
         echo " ($MYSTATUS)"
     fi
@@ -123,8 +123,6 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
 alias l='eza -lha --icons'
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -136,13 +134,12 @@ alias lg='lazygit'
 alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
 alias ts="tiro tui search"
 alias tt="tiro tui take"
-alias tmuxk="tmux kill-server"
 alias cat="batcat --style=plain"
 
 #
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -171,7 +168,6 @@ alias Do='cd ~/Downloads'
 alias T='cd ~/tmp'
 alias W='cd ~/projects/websites'
 alias cd..='cd ..'
-alias H='cd ~'
 alias P='cd ~/projects/'
 alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 alias Y='cd ~/projects/yottadb/ydb-data'
