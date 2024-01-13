@@ -586,7 +586,7 @@ bleopt exec_errexit_mark=$'[ble: exit %d]'
 ## If "complete_auto_history" has non-empty values, auto-complete searches
 ## matching command lines from history.
 
-#bleopt complete_auto_history=1
+bleopt complete_auto_history=
 
 
 ## The following setting controls the delay of auto-complete after the last
