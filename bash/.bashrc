@@ -82,7 +82,11 @@ battery_status() {
 }
 
 git_status() {
-    MYSTATUS=$(git status -sb --porcelain=v1 2> /dev/null| head -n 1 | cut -d " " -f 2-)
+    MYSTATUS=$(git status -sb --untracked-files=no --ignore-submodules 2> /dev/null | awk '
+    /^##/ { branch = substr($0, 4) }
+    /^[[:space:]]+[A-Z]/ { count += gsub(/[[:upper:]]/, "", $1) }
+    END { if (count > 0) printf("%s *%d", branch, count); else printf("%s", branch)}
+    ')
     if [ "$MYSTATUS" != "" ]; then
         echo " ($MYSTATUS)"
     fi
