@@ -131,13 +131,9 @@ alias l='eza -lha --icons'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias .....='cd ../../../../'
 alias rm='gio trash'
-alias cpwd="pwd | tr -d '\n' | xargs qtechng clipboard set && echo $(pwd | tr -d '\n') 'copied to clipboard'"
 alias lg='lazygit'
 alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
-alias ts="tiro tui search"
-alias tt="tiro tui take"
 alias cat="batcat --style=plain"
 
 #
@@ -174,8 +170,6 @@ alias W='cd ~/projects/websites'
 alias cd..='cd ..'
 alias P='cd ~/projects/'
 alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
-alias Y='cd ~/projects/yottadb/ydb-data'
-alias Z='cd ~/projects/websites/brainmanager/development/brainmanager'
 
 # startup
 
@@ -188,11 +182,8 @@ export PATH=/usr/local/lib/nodejs/node-v18.8.0-linux-x64/bin:/usr/local/lib/node
 export BROCADE_REGISTRY=/home/tdeneire/registry.json
 export PYTHONPATH=/home/tdeneire/py3
 
-# ~/.tmux/plugins
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-# ~/.config/tmux/plugins
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
+# tmux
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export T_SESSION_NAME_INCLUDE_PARENT="true"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
