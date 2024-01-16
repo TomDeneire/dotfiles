@@ -10,17 +10,19 @@ case $- in
 *i*) ;;
 *) return;;
 esac
+
+# History settings
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+# HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+# shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-HISTTIMEFORMAT="%d/%m/%y %T "
+# HISTSIZE=1000
+# HISTFILESIZE=2000
+# HISTTIMEFORMAT="%d/%m/%y %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -58,6 +60,8 @@ if [ -n "$force_color_prompt" ]; then
         color_prompt=
     fi
 fi
+
+# Color definitions
 
 # black_bold='\[\033[01;30m\]'
 # red_bold='\[\033[01;31m\]'
@@ -114,29 +118,29 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
+    alias l='eza -lha --icons'
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias l='eza -lha --icons'
+# Aliases
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias rm='gio trash'
-alias lg='lazygit'
-alias registry="qtechng registry get '*' --jsonpath='$..DATA'"
 alias cat="batcat --style=plain"
+alias B='cd ~/Dropbox/brocade/source/data'
+alias C='cd ~/projects/code'
+alias D='cd ~/Desktop'
+alias Do='cd ~/Downloads'
+alias T='cd ~/tmp'
+alias W='cd ~/projects/websites'
+alias cd..='cd ..'
+alias P='cd ~/projects/'
+alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 
-#
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -161,54 +165,37 @@ if ! shopt -oq posix; then
     fi
 fi
 
-alias B='cd ~/Dropbox/brocade/source/data'
-alias C='cd ~/projects/code'
-alias D='cd ~/Desktop'
-alias Do='cd ~/Downloads'
-alias T='cd ~/tmp'
-alias W='cd ~/projects/websites'
-alias cd..='cd ..'
-alias P='cd ~/projects/'
-alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 
-# startup
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Environment variables
 
 export PATH=/usr/local/lib/nodejs/node-v18.8.0-linux-x64/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/vscode-langservers-extracted/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:$PATH
-
 export BROCADE_REGISTRY=/home/tdeneire/registry.json
 export PYTHONPATH=/home/tdeneire/py3
+export EDITOR='nvim'
 
-# tmux
+# Tmux
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export T_SESSION_NAME_INCLUDE_PARENT="true"
 
+# Fzf
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Zoxide
 
 eval "$(zoxide init bash)"
 
-# [ -f "/home/tdeneire/.ghcup/env" ] && source "/home/tdeneire/.ghcup/env" # ghcup-env
-
-export EDITOR='nvim'
-
-# LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
-# export LS_COLORS
+# Cargo
 
 . "$HOME/.cargo/env"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/tdeneire/google-cloud-sdk/completion.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/completion.bash.inc'; fi
-
 # ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach
 
-# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# Atuin
 export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
