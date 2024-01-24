@@ -129,6 +129,7 @@ fi
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias j='cd $(cdjumper fuzzy)'
 alias rm='gio trash'
 alias cat="batcat --style=plain"
 alias B='cd ~/Dropbox/brocade/source/data'
@@ -173,10 +174,6 @@ export BROCADE_REGISTRY=/home/tdeneire/registry.json
 export PYTHONPATH=/home/tdeneire/py3
 export EDITOR='nvim'
 
-# Tmux
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-export T_SESSION_NAME_INCLUDE_PARENT="true"
-
 # Fzf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -184,6 +181,7 @@ export T_SESSION_NAME_INCLUDE_PARENT="true"
 # Zoxide
 
 eval "$(zoxide init bash)"
+export _ZO_RESOLVE_SYMLINKS=1
 
 # Cargo
 
