@@ -169,7 +169,7 @@ fi
 
 # Environment variables
 
-export PATH=/usr/local/lib/nodejs/node-v18.8.0-linux-x64/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/vscode-langservers-extracted/bin:/usr/local/lib/nodejs/node-v18.8.0-linux-x64/lib/node_modules/:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:$PATH
+export PATH=/bin:/home/tdeneire/.cargo/bin:/home/tdeneire/.local/bin:/home/tdeneire/bin:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:$PATH
 export BROCADE_REGISTRY=/home/tdeneire/registry.json
 export PYTHONPATH=/home/tdeneire/py3
 export EDITOR='nvim'
