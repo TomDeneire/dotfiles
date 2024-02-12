@@ -2,9 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# ble.sh
-[[ $- == *i* ]] && source /home/tdeneire/bin/blesh --noattach --rcfile /home/tdeneire/.blerc
-
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
@@ -190,10 +187,8 @@ export _ZO_RESOLVE_SYMLINKS=1
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
 
-# ble.sh
-[[ ${BLE_VERSION-} ]] && ble-attach
-
 # Atuin
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
