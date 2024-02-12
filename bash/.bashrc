@@ -115,6 +115,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='lsd'
     alias l='ls -lah --color=always'
     alias grep='grep --color=auto'
 fi
