@@ -186,7 +186,7 @@ export _ZO_RESOLVE_SYMLINKS=1
 . "$HOME/.cargo/env"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
+# if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
 
 # Atuin
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
