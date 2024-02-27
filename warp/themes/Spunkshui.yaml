@@ -1,0 +1,28 @@
+---
+background : "#303030"
+accent : "#fac863"
+foreground : "#d4d4d4"
+# background_image:
+#   path: 
+#   opacity:
+details: darker
+terminal_colors:
+  normal:
+    black : "#303030"
+    red : "#C34043"
+    green: "#b4fa72"
+    yellow : "#fac863"
+    blue : "#569cd6"
+    magenta : "#c594c5"
+    cyan : "#62b3b2"
+    white : "#ffffff"
+  bright:
+    black : "#303030"
+    red : "#f44747"
+    green: "#d6fcb9"
+    yellow : "#fac863"
+    blue : "#7bbad8"
+    magenta : "#c594c5"
+    cyan : "#62b3b2"
+    white : "#d4d4d4"
+name: Spunkshui

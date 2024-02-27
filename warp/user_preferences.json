@@ -1,0 +1,24 @@
+{
+  "prefs": {
+    "Shortcuts": "true",
+    "CrashReportingEnabled": "false",
+    "OpenWindowsAtCustomSize": "false",
+    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":0,\"next_refresh_time\":\"2024-02-24T07:58:49.639755Z\"}",
+    "AliasExpansionBannerSeen": "true",
+    "WelcomeTipsFeaturesUsed": "[{\"Hint\":\"BlockAction\"},{\"Action\":\"WarpAI\"},{\"Action\":\"CommandSearch\"},{\"Hint\":\"CreateBlock\"},{\"Hint\":\"BlockSelect\"},{\"Action\":\"AiCommandSearch\"},{\"Action\":\"ThemePicker\"}]",
+    "Theme": "{\"Custom\":{\"name\":\"Spunkshui\",\"path\":\"/home/tdeneire/.local/share/warp-terminal/themes/Spunkshui.yaml\"}}",
+    "FontSize": "22.0",
+    "ReceivedReferralTheme": "\"Inactive\"",
+    "HonorPS1": "true",
+    "LineHeightRatio": "1.2",
+    "ChangelogVersions": "{\"v0.2024.02.20.08.01.stable_01\":true}",
+    "TelemetryEnabled": "false",
+    "HasAutoOpenedWelcomeFolder": "true",
+    "ExperimentId": "6ec24904-6250-4063-864b-7e4c5f693633",
+    "SystemTheme": "false",
+    "FontName": "\"DejaVu Sans Mono\"",
+    "ShowIndicatorsButton": "false",
+    "CursorBlink": "\"Disabled\"",
+    "SelectedSystemThemes": "{\"light\":\"Light\",\"dark\":\"Dark\"}"
+  }
+}
