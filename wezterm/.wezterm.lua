@@ -7,32 +7,35 @@ function external_monitor()
     local cmd = "xdpyinfo | grep dimensions | awk '{print $2}'"
     local handle = io.popen(cmd)
     local output = handle:read('*a')
-    local resolution = output:gsub('[\n\r]', ' ')
+    local resolution = output:gsub('[\n\r]', '')
     handle:close()
     return resolution == "5760x2160"
 end
 
-config.font_dirs = { '/usr/share/fonts', '/usr/local/share/fonts', '/home/tdeneire/.local/share/fonts' }
-config.font = wezterm.font_with_fallback { 'DejaVuSansMono', 'MesloLGL' }
+config.font = wezterm.font_with_fallback { 'FiraMonoNerdFont', 'MesloLGL' }
 config.line_height = 1.1
 config.window_decorations = "RESIZE"
 config.window_padding = {
     left = "21%",
     right = "1%",
-    top = 0,
-    bottom = 0
+    top = 10,
+    bottom = 5
 }
 
 config.enable_tab_bar = false
 
+local font_size = 19.5
+
 if external_monitor() then
-    config.font_size = 22.5
-else
-    config.font_size = 18.5
+    font_size = 23.5
+    config.font_size = 23.5
 end
 
-local gpus = wezterm.gui.enumerate_gpus()
-config.webgpu_preferred_adapter = gpus[1]
+config.font_size = font_size
+config.command_palette_font_size = font_size
+
+-- local gpus = wezterm.gui.enumerate_gpus()
+-- config.webgpu_preferred_adapter = gpus[3]
 config.front_end = "WebGpu"
 config.webgpu_force_fallback_adapter = false
 config.webgpu_power_preference = "HighPerformance"
@@ -80,7 +83,7 @@ config.colors = {
         '#f44747',
         '#99c794',
         '#fac863',
-        '#7bbad8',
+        '#569cd6',
         '#c594c5',
         '#62b3b2',
         '#ffffff',
