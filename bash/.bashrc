@@ -79,7 +79,7 @@ green='\[\033[00;32m\]'
 clear='\[\033[00m\]'
 
 battery_status() {
-    echo $(batman check --raw 2> /dev/null | cut -d' ' -f3)
+    echo $(batman check --icon 2> /dev/null)
 }
 
 git_status() {
@@ -93,10 +93,12 @@ git_status() {
     fi
 }
 
-MYHOST=$(hostnamectl | grep Operating | cut -d':' -f2)
+# MYHOST=$(hostnamectl | grep Operating | cut -d':' -f2)
+MYHOST=$(hostnamectl | grep Operating | cut -d ':' -f2 | cut -d 't' -f2)
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 🐧$MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
+    PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 󰣭$MYHOST \$(battery_status) ${blue_bold} \w${clear} \$(git_status)\n⚡ "
+    # PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 🐧$MYHOST \$(battery_status) ${blue_bold} \w${clear} \$(git_status)\n⚡ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -138,6 +140,7 @@ alias T='cd ~/tmp'
 alias W='cd ~/projects/websites'
 alias cd..='cd ..'
 alias P='cd ~/projects/'
+alias N='cd ~/Documents/notes'
 alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -167,7 +170,7 @@ fi
 
 # Environment variables
 
-export PATH=/bin:/home/tdeneire/.cargo/bin:/home/tdeneire/.local/bin:/home/tdeneire/bin:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:$PATH
+export PATH=/bin:/home/tdeneire/.cargo/bin:/home/tdeneire/.local/bin:/home/tdeneire/bin:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/home/tdeneire/go/bin:$PATH
 export BROCADE_REGISTRY=/home/tdeneire/registry.json
 export PYTHONPATH=/home/tdeneire/py3
 export EDITOR='nvim'
@@ -194,3 +197,4 @@ export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
+source /home/tdeneire/perl5/perlbrew/etc/bashrc
