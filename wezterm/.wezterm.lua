@@ -12,8 +12,10 @@ function external_monitor()
     return resolution == "5760x2160"
 end
 
-config.font = wezterm.font_with_fallback { 'FiraMonoNerdFont', 'MesloLGL' }
-config.line_height = 1.1
+-- config.font = wezterm.font_with_fallback { 'FiraMonoNerdFont', 'MesloLGL' } -- MesloLGL for italics
+config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont' }
+-- disable ligatures
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.window_decorations = "RESIZE"
 config.window_padding = {
     left = "21%",
@@ -24,14 +26,16 @@ config.window_padding = {
 
 config.enable_tab_bar = false
 
-local font_size = 19.5
+local font_size = 18.5
+local line_height = 1.2
 
 if external_monitor() then
     font_size = 23.5
-    config.font_size = 23.5
+    line_height = 1.2
 end
 
 config.font_size = font_size
+config.line_height = line_height
 config.command_palette_font_size = font_size
 
 -- local gpus = wezterm.gui.enumerate_gpus()
@@ -56,7 +60,7 @@ config.colors = {
     -- -- Specifies the border color of the cursor when the cursor style is set to Block,
     -- -- or the color of the vertical or horizontal bar when the cursor style is set to
     -- -- Bar or Underline.
-    -- cursor_border = '#52ad70',
+    cursor_border = '#d4d4d4',
     --
     -- -- the foreground color of selected text
     selection_fg = '#d4d4d4',
