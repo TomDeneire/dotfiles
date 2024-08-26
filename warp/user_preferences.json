@@ -1,26 +1,25 @@
 {
   "prefs": {
     "CursorBlink": "\"Disabled\"",
-    "StartupShellOverride": "\"bash\"",
-    "ReceivedReferralTheme": "\"Inactive\"",
-    "SelectedSystemThemes": "{\"light\":\"Light\",\"dark\":\"Dark\"}",
-    "OpenWindowsAtCustomSize": "false",
-    "ShowIndicatorsButton": "false",
-    "ExperimentId": "6ec24904-6250-4063-864b-7e4c5f693633",
-    "FontSize": "22.0",
-    "Theme": "{\"Custom\":{\"name\":\"Spunkshui\",\"path\":\"/home/tdeneire/.local/share/warp-terminal/themes/Spunkshui.yaml\"}}",
-    "HonorPS1": "true",
-    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":0,\"next_refresh_time\":\"2024-02-24T07:58:49.639755Z\"}",
-    "TelemetryEnabled": "false",
-    "HasAutoOpenedWelcomeFolder": "true",
     "LineHeightRatio": "1.2",
-    "SystemTheme": "false",
-    "WelcomeTipsFeaturesUsed": "[{\"Hint\":\"BlockAction\"},{\"Action\":\"WarpAI\"},{\"Action\":\"CommandSearch\"},{\"Hint\":\"CreateBlock\"},{\"Hint\":\"BlockSelect\"},{\"Action\":\"AiCommandSearch\"},{\"Action\":\"ThemePicker\"}]",
-    "CrashReportingEnabled": "false",
-    "ChangelogVersions": "{\"v0.2024.02.20.08.01.stable_01\":true}",
+    "ReceivedReferralTheme": "\"Inactive\"",
     "Shortcuts": "true",
     "AliasExpansionBannerSeen": "true",
-    "FontName": "\"FiraMonoNerdFont\""
+    "WelcomeTipsFeaturesUsed": "[{\"Hint\":\"BlockAction\"},{\"Action\":\"WarpAI\"},{\"Action\":\"CommandSearch\"},{\"Hint\":\"CreateBlock\"},{\"Hint\":\"BlockSelect\"},{\"Action\":\"AiCommandSearch\"},{\"Action\":\"ThemePicker\"}]",
+    "Theme": "{\"Custom\":{\"name\":\"Spunkshui\",\"path\":\"/home/tdeneire/.local/share/warp-terminal/themes/Spunkshui.yaml\"}}",
+    "CrashReportingEnabled": "false",
+    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":0,\"next_refresh_time\":\"2024-02-24T07:58:49.639755Z\"}",
+    "FontName": "\"FiraMonoNerdFont\"",
+    "TelemetryEnabled": "false",
+    "HonorPS1": "true",
+    "OpenWindowsAtCustomSize": "false",
+    "SystemTheme": "false",
+    "HasAutoOpenedWelcomeFolder": "true",
+    "ChangelogVersions": "{\"v0.2024.02.20.08.01.stable_01\":true,\"v0.2024.04.09.08.01.stable_01\":true}",
+    "SelectedSystemThemes": "{\"light\":\"Light\",\"dark\":\"Dark\"}",
+    "FontSize": "22.0",
+    "StartupShellOverride": "\"bash\"",
+    "ShowIndicatorsButton": "false",
+    "ExperimentId": "6ec24904-6250-4063-864b-7e4c5f693633"
   }
 }
-
