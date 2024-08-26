@@ -47,39 +47,19 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
-
-# Color definitions
-
-# black_bold='\[\033[01;30m\]'
-# red_bold='\[\033[01;31m\]'
-green_bold='\[\033[01;32m\]'
-# yellow_bold='\[\033[01;33m\]'
-blue_bold='\[\033[01;34m\]'  
-# purple_bold='\[\033[01;35m\]'
-# cyan_bold='\[\033[01;36m\]'
-# white_bold='\[\033[01;37m\]'
-# black='\[\033[00;30m\]'
-# red='\[\033[00;31m\]'
-green='\[\033[00;32m\]'
-# yellow='\[\033[00;33m\]'
-# blue='\[\033[00;34m\]'
-# purple='\[\033[00;35m\]'
-# cyan='\[\033[00;36m\]'
-# white='\[\033[00;37m\]'
-clear='\[\033[00m\]'
+# if [ -n "$force_color_prompt" ]; then
+#     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#         # We have color support; assume it's compliant with Ecma-48
+#         # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#         # a case would tend to support setf rather than setaf.)
+#         color_prompt=yes
+#     else
+#         color_prompt=
+#     fi
+# fi
 
 battery_status() {
-    echo $(batman check --icon 2> /dev/null)
+    batman check --icon 2> /dev/null
 }
 
 git_status() {
@@ -93,26 +73,56 @@ git_status() {
     fi
 }
 
-# MYHOST=$(hostnamectl | grep Operating | cut -d':' -f2)
+# Color definitions
+
+# black_bold='\[\e[01;30m\]'
+# red_bold='\[\e[01;31m\]'
+green_bold='\[\e[01;32m\]'
+green_bg_black_fg='\[\e[42;30m\]'
+blue_bg_green_fg='\[\e[44;32m\]'
+blue_bg_black_fg='\[\e[44;30m\]'
+# yellow_bold='\[\e[01;33m\]'
+blue_bold='\[\e[01;34m\]'  
+blue='\[\e[01;34m\]'  
+# purple_bold='\[\e[01;35m\]'
+# cyan_bold='\[\e[01;36m\]'
+# white_bold='\[\e[01;37m\]'
+# black='\[\e[00;30m\]'
+# red='\[\e[00;31m\]'
+# green='\[\e[00;32m\]'
+# yellow='\[\e[00;33m\]'
+# blue='\[\e[00;34m\]'
+# purple='\[\e[00;35m\]'
+# cyan='\[\e[00;36m\]'
+# white='\[\e[00;37m\]'
+clear='\[\e[00m\]'
+
+# section_separators = { left = '', right = '' },
 MYHOST=$(hostnamectl | grep Operating | cut -d ':' -f2 | cut -d 't' -f2)
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 󰣭$MYHOST \$(battery_status) ${blue_bold} \w${clear} \$(git_status)\n⚡ "
-    # PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 🐧$MYHOST \$(battery_status) ${blue_bold} \w${clear} \$(git_status)\n⚡ "
+    # # version with slants 
+    # MYUSER="${debian_chroot:+($debian_chroot)}${green_bg_black_fg}\u on 󰣭$MYHOST \$(battery_status) ${blue_bg_green_fg}"
+    # MYPATH="${blue_bg_black_fg}\w${clear}${blue}"
+    # MYGIT="${clear} \$(git_status)"
+    # PS1="\n$MYUSER$MYPATH$MYGIT\n⚡ "
+    # version without slants 
+    PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 󰣭$MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-unset color_prompt force_color_prompt
+unset color_prompt 
+# unset force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-;;
-*)
-;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+# ;;
+# *)
+# ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -152,20 +162,20 @@ alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+# if [ -f ~/.bash_aliases ]; then
+#     . ~/.bash_aliases
+# fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-        elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-fi
+# if ! shopt -oq posix; then
+#     if [ -f /usr/share/bash-completion/bash_completion ]; then
+#         . /usr/share/bash-completion/bash_completion
+#         elif [ -f /etc/bash_completion ]; then
+#         . /etc/bash_completion
+#     fi
+# fi
 
 
 # Environment variables
@@ -197,4 +207,3 @@ export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
-source /home/tdeneire/perl5/perlbrew/etc/bashrc
