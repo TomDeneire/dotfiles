@@ -12,8 +12,8 @@ function external_monitor()
     return resolution == "5760x2160"
 end
 
--- config.font = wezterm.font_with_fallback { 'FiraMonoNerdFont', 'MesloLGL' } -- MesloLGL for italics
-config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont' }
+-- MesloLGL for missing glyphs
+config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont', 'MesloLGL' } 
 -- disable ligatures
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.window_decorations = "RESIZE"
