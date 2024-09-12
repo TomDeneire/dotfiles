@@ -4,75 +4,45 @@
             "version": "1"
         }
     },
-    "theme": "One Dark",
-
+    "theme": "One Dark Pro",
     "base_keymap": "VSCode",
     "features": {
         "inline_completion_provider": "copilot"
     },
-
     "buffer_font_family": "FiraCode Nerd Font",
-
     "buffer_font_features": {
         "calt": false
     },
-
     "buffer_font_size": 30,
-
     "buffer_font_weight": 400,
-
     "buffer_line_height": "comfortable",
-
     "ui_font_family": "FiraCode Nerd Font",
-
     "ui_font_features": {
         "calt": false
     },
-
     "ui_font_weight": 400,
-
     "ui_font_size": 30,
-
     "active_pane_magnification": 1.0,
-
     "centered_layout": {
         "left_padding": 0.2,
-
         "right_padding": 0.2
     },
-
     "multi_cursor_modifier": "alt",
-
     "vim_mode": true,
-
     "hover_popover_enabled": true,
-
     "confirm_quit": false,
-
-    "restore_on_startup": "last_workspace",
-
+    "restore_on_startup": "last_session",
     "drop_target_size": 0.2,
-
     "when_closing_with_no_tabs": "platform_default",
-
     "cursor_blink": false,
-
     "current_line_highlight": "all",
-
     "show_completions_on_input": true,
-
-    "show_completion_documentation": true,
-
+    "show_completion_documentation": false,
     "completion_documentation_secondary_query_debounce": 300,
-
     "show_wrap_guides": true,
-
     "wrap_guides": [],
-
     "redact_private_values": false,
-
     "expand_excerpt_lines": 3,
-
     "private_files": [
         "**/.env*",
         "**/*.pem",
@@ -81,111 +51,70 @@
         "**/*.crt",
         "**/secrets.yml"
     ],
-
     "use_on_type_format": true,
-
     "use_autoclose": true,
-
     "always_treat_brackets_as_autoclosed": false,
-
     "show_copilot_suggestions": true,
-
     "show_whitespaces": "selection",
-
     "calls": {
         "mute_on_join": false,
-
         "share_on_join": false
     },
-
     "toolbar": {
         "breadcrumbs": true,
-
-        "quick_actions": false
+        "quick_actions": true
     },
-
     "scrollbar": {
         "show": "auto",
-
         "cursors": true,
-
         "git_diff": true,
-
-        "search_results": false,
-
+        "search_results": true,
         "selected_symbol": true,
-
         "diagnostics": true
     },
-
     "double_click_in_multibuffer": "select",
     "gutter": {
         "line_numbers": true,
-
         "code_actions": true,
-
         "folds": true
     },
     "indent_guides": {
         "enabled": true,
-
         "line_width": 1,
-
         "coloring": "fixed",
-
         "background_coloring": "disabled"
     },
-
     "vertical_scroll_margin": 3,
-
     "scroll_sensitivity": 1.0,
     "relative_line_numbers": true,
-
     "seed_search_query_from_cursor": "always",
-
     "inlay_hints": {
         "enabled": false,
-
         "show_type_hints": true,
         "show_parameter_hints": true,
-
         "show_other_hints": true,
-
         "edit_debounce_ms": 700,
-
         "scroll_debounce_ms": 50
     },
     "project_panel": {
         "button": true,
-
         "default_width": 240,
-
         "dock": "left",
-
         "file_icons": true,
-
         "folder_icons": true,
-
         "git_status": true,
-
         "indent_size": 20,
-
         "auto_reveal_entries": true,
-
         "auto_fold_dirs": false
     },
     "collaboration_panel": {
         "button": false,
-
         "dock": "left",
-
         "default_width": 240
     },
     "chat_panel": {
         "button": false,
-
         "dock": "right",
-
         "default_width": 240
     },
     "message_editor": {
@@ -193,9 +122,7 @@
     },
     "notification_panel": {
         "button": true,
-
         "dock": "right",
-
         "default_width": 380
     },
     "assistant": {
@@ -204,78 +131,50 @@
             "model": "gpt-4o"
         },
         "version": "2",
-
         "enabled": true,
-
         "button": false,
-
         "dock": "right",
-
         "default_width": 640,
-
         "default_height": 640.0,
-
         "provider": null
     },
-
     "show_call_status_icon": false,
-
     "enable_language_server": true,
-
-    "language_servers": ["..."],
-
+    "language_servers": [
+        "gopls",
+        "pyright"
+    ],
     "autosave": "off",
-
     "tab_bar": {
         "show": true,
-
         "show_nav_history_buttons": true
     },
-
     "tabs": {
         "git_status": false,
-
         "close_position": "right"
     },
-
     "preview_tabs": {
         "enabled": true,
-
         "enable_preview_from_file_finder": true,
-
         "enable_preview_from_code_navigation": true
     },
-
     "remove_trailing_whitespace_on_save": true,
-
     "extend_comment_on_newline": true,
-
     "ensure_final_newline_on_save": true,
-
     "format_on_save": "on",
-
     "formatter": "auto",
-
     "soft_wrap": "prefer_line",
-
     "preferred_line_length": 80,
-
     "hard_tabs": false,
-
     "tab_size": 4,
-
     "telemetry": {
         "diagnostics": false,
-
         "metrics": false
     },
-
-    "auto_update": false,
-
+    "auto_update": true,
     "diagnostics": {
-        "include_warnings": true
+        "include_warnings": true,
     },
-
     "file_scan_exclusions": [
         "**/.git",
         "**/.svn",
@@ -286,53 +185,42 @@
         "**/.classpath",
         "**/.settings"
     ],
-
     "git": {
         "git_gutter": "tracked_files",
-
         "inline_blame": {
-            "enabled": true
+            "enabled": false
         }
     },
     "copilot": {
-        "disabled_globs": [".env"]
+        "disabled_globs": [
+            ".env"
+        ]
     },
-
     "journal": {
         "path": "~",
-
         "hour_format": "hour24"
     },
-
     "terminal": {
         "shell": "system",
-
         "dock": "bottom",
-
         "default_width": 640,
-
         "default_height": 320,
-
         "working_directory": "current_project_directory",
-
         "blinking": "terminal_controlled",
-
         "alternate_scroll": "off",
-
         "option_as_meta": false,
-
-        "copy_on_select": false,
-
+        "copy_on_select": true,
         "button": true,
-
         "env": {},
-
         "line_height": "comfortable",
-
         "detect_venv": {
             "on": {
-                "directories": [".env", "env", ".venv", "venv"],
-
+                "directories": [
+                    ".env",
+                    "env",
+                    ".venv",
+                    "venv"
+                ],
                 "activate_script": "default"
             }
         },
@@ -341,18 +229,17 @@
         }
     },
     "code_actions_on_format": {},
-
     "file_types": {},
-
     "auto_install_extensions": {
         "html": true
     },
-
     "languages": {
         "Astro": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["prettier-plugin-astro"]
+                "plugins": [
+                    "prettier-plugin-astro"
+                ]
             }
         },
         "Blade": {
@@ -372,7 +259,12 @@
             }
         },
         "Elixir": {
-            "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+            "language_servers": [
+                "elixir-ls",
+                "!next-ls",
+                "!lexical",
+                "..."
+            ]
         },
         "Go": {
             "code_actions_on_format": {
@@ -385,7 +277,12 @@
             }
         },
         "HEEX": {
-            "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+            "language_servers": [
+                "elixir-ls",
+                "!next-ls",
+                "!lexical",
+                "..."
+            ]
         },
         "HTML": {
             "prettier": {
@@ -395,11 +292,17 @@
         "Java": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["prettier-plugin-java"]
+                "plugins": [
+                    "prettier-plugin-java"
+                ]
             }
         },
         "JavaScript": {
-            "language_servers": ["typescript-language-server", "!vtsls", ".."],
+            "language_servers": [
+                "typescript-language-server",
+                "!vtsls",
+                ".."
+            ],
             "prettier": {
                 "allowed": true
             }
@@ -418,11 +321,17 @@
         "PHP": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["@prettier/plugin-php"]
+                "plugins": [
+                    "@prettier/plugin-php"
+                ]
             }
         },
         "Ruby": {
-            "language_servers": ["solargraph", "!ruby-lsp", "..."]
+            "language_servers": [
+                "solargraph",
+                "!ruby-lsp",
+                "..."
+            ]
         },
         "SCSS": {
             "prettier": {
@@ -432,17 +341,25 @@
         "SQL": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["prettier-plugin-sql"]
+                "plugins": [
+                    "prettier-plugin-sql"
+                ]
             }
         },
         "Svelte": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["prettier-plugin-svelte"]
+                "plugins": [
+                    "prettier-plugin-svelte"
+                ]
             }
         },
         "TSX": {
-            "language_servers": ["typescript-language-server", "!vtsls", ".."],
+            "language_servers": [
+                "typescript-language-server",
+                "!vtsls",
+                ".."
+            ],
             "prettier": {
                 "allowed": true
             }
@@ -453,7 +370,11 @@
             }
         },
         "TypeScript": {
-            "language_servers": ["typescript-language-server", "!vtsls", ".."],
+            "language_servers": [
+                "typescript-language-server",
+                "!vtsls",
+                ".."
+            ],
             "prettier": {
                 "allowed": true
             }
@@ -466,7 +387,9 @@
         "XML": {
             "prettier": {
                 "allowed": true,
-                "plugins": ["@prettier/plugin-xml"]
+                "plugins": [
+                    "@prettier/plugin-xml"
+                ]
             }
         },
         "YAML": {
@@ -475,30 +398,20 @@
             }
         }
     },
-
     "prettier": {},
-
     "lsp": {},
-
     "vim": {
         "use_system_clipboard": "always",
         "use_multiline_find": false,
         "use_smartcase_find": false
     },
-
     "preview": {},
-
     "nightly": {},
-
     "stable": {},
-
     "dev": {},
-
     "task": {
         "show_status_indicator": true
     },
-
     "line_indicator_format": "long",
-
     "proxy": null
 }
