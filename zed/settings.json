@@ -142,7 +142,8 @@
     "enable_language_server": true,
     "language_servers": [
         "gopls",
-        "pyright"
+        "pyright",
+        "LuaLS"
     ],
     "autosave": "off",
     "tab_bar": {
@@ -312,6 +313,12 @@
                 "allowed": true
             }
         },
+        "Lua": {
+            "language_servers": [
+                "lua-language-server",
+                "lua-ls",
+            ]
+        },
         "Markdown": {
             "format_on_save": "off",
             "prettier": {
@@ -331,6 +338,11 @@
                 "solargraph",
                 "!ruby-lsp",
                 "..."
+            ]
+        },
+        "Rust": {
+            "language_servers": [
+                "rust-analyzer",
             ]
         },
         "SCSS": {
@@ -399,7 +411,10 @@
         }
     },
     "prettier": {},
-    "lsp": {},
+    "lsp": {
+        "rust-analyzer": {
+        }
+      },
     "vim": {
         "use_system_clipboard": "always",
         "use_multiline_find": false,
