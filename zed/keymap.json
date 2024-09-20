@@ -14,7 +14,6 @@
       "escape": "menu::Cancel",
       "ctrl-escape": "menu::Cancel",
       "ctrl-c": "menu::Cancel",
-      "shift-enter": "picker::UseSelectedQuery",
       "ctrl-alt-enter": [
         "picker::ConfirmInput",
         {
@@ -568,7 +567,10 @@
   },
   {
     "context": "Terminal",
-    "bindings": {}
+    "bindings": {
+      "ctrl-h": "pane::ActivatePrevItem",
+      "ctrl-l": "pane::ActivateNextItem"
+    }
   },
   {
     "context": "Editor && vim_mode == normal && !menu",
@@ -576,9 +578,10 @@
       "t h": "pane::ActivatePrevItem",
       "t l": "pane::ActivateNextItem",
       "t d": "pane::CloseActiveItem",
+      "t b": "tab_switcher::Toggle",
       "ctrl-i": "editor::Hover",
-      "ctrl-j": "vim::PageDown",
-      "ctrl-k": "vim::PageUp",
+      "ctrl-j": ["workspace::SendKeystrokes", "1 0 j"],
+      "ctrl-k": ["workspace::SendKeystrokes", "1 0 k"],
       "ctrl-d": "editor::GoToDefinition",
       "space r n": "editor::Rename",
       "ctrl-f": "workspace::NewSearch",
@@ -588,6 +591,17 @@
       "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"],
       "H": "editor::MoveToBeginningOfLine",
       "L": "editor::MoveToEndOfLine",
+      // disable arrow keys
+      "up": ["workspace::SendKeystrokes", ""],
+      "down": ["workspace::SendKeystrokes", ""],
+      "left": ["workspace::SendKeystrokes", ""],
+      "right": ["workspace::SendKeystrokes", ""],
+      "ctrl-b": [
+        "task::Spawn",
+        {
+          "task_name": "qtechng_file_ci"
+        }
+      ],
       "space l g": [
         "task::Spawn",
         {
@@ -599,7 +613,9 @@
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j j": "vim::NormalBefore"
+      "j j": "vim::NormalBefore",
+      "up": "vim::NormalBefore",
+      "down": "vim::NormalBefore"
     }
   },
   {

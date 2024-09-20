@@ -13,15 +13,15 @@
   "buffer_font_features": {
     "calt": false
   },
-  "buffer_font_fallbacks": ["MesloLGL Nerd Font"],
+  "buffer_font_fallbacks": ["MesloLGL Nerd Font", "Zed Plex Mono"],
   "buffer_font_size": 30,
-  "buffer_font_weight": 400,
+  "buffer_font_weight": 450,
   "buffer_line_height": "comfortable",
   "ui_font_family": "FiraCode Nerd Font",
   "ui_font_features": {
     "calt": false
   },
-  "ui_font_weight": 400,
+  "ui_font_weight": 450,
   "ui_font_size": 30,
   "active_pane_magnification": 1.0,
   "centered_layout": {
@@ -40,8 +40,9 @@
   "show_completions_on_input": true,
   "show_completion_documentation": false,
   "completion_documentation_secondary_query_debounce": 300,
+  "unnecessary_code_fade": 0.5,
   "show_wrap_guides": true,
-  "wrap_guides": [],
+  "wrap_guides": [80],
   "redact_private_values": false,
   "expand_excerpt_lines": 3,
   "private_files": [
@@ -79,6 +80,12 @@
     "code_actions": true,
     "folds": true
   },
+  "search": {
+    "whole_word": false,
+    "case_sensitive": false,
+    "include_ignored": true,
+    "regex": false
+  },
   "indent_guides": {
     "enabled": true,
     "line_width": 1,
@@ -107,6 +114,17 @@
     "indent_size": 20,
     "auto_reveal_entries": true,
     "auto_fold_dirs": false
+  },
+  "outline_panel": {
+    "button": false,
+    "default_width": 240,
+    "dock": "left",
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "indent_size": 20,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true
   },
   "collaboration_panel": {
     "button": false,
@@ -148,7 +166,8 @@
     "show_nav_history_buttons": true
   },
   "tabs": {
-    "git_status": false,
+    "git_status": true,
+    "file_icons": true,
     "close_position": "right"
   },
   "preview_tabs": {
@@ -160,8 +179,8 @@
   "extend_comment_on_newline": true,
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
-  "formatter": "auto",
-  "soft_wrap": "none",
+  "formatter": "language_server",
+  "soft_wrap": "preferred_line_length",
   "soft_wrap_guides": [80],
   "preferred_line_length": 80,
   "hard_tabs": false,
@@ -209,6 +228,9 @@
     "copy_on_select": true,
     "button": true,
     "env": {},
+    "font_size": 30,
+    "font_weight": 450,
+    "font_family": "FiraCode Nerd Font",
     "line_height": "comfortable",
     "detect_venv": {
       "on": {
@@ -292,9 +314,8 @@
       "language_servers": ["lua-language-server", "lua-ls"]
     },
     "Markdown": {
-      "format_on_save": "off",
+      "format_on_save": "on",
       "language_servers": [""],
-      "soft_wrap": "editor_width",
       "prettier": {
         "allowed": true
       }
