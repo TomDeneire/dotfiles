@@ -13,9 +13,9 @@ function external_monitor()
 end
 
 -- MesloLGL for missing glyphs
-config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont', 'MesloLGL' } 
+config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont', 'MesloLGL' }
 -- disable ligatures
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+-- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.window_decorations = "RESIZE"
 config.window_padding = {
     left = "21%",
@@ -44,6 +44,7 @@ config.front_end = "WebGpu"
 config.webgpu_force_fallback_adapter = false
 config.webgpu_power_preference = "HighPerformance"
 
+-- config.color_scheme = 'Tango (base16)'
 
 config.colors = {
     -- The default text color
