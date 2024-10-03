@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
-*) return;;
+*) return ;;
 esac
 
 # History settings
@@ -34,12 +34,12 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-debian_chroot=$(cat /etc/debian_chroot)
+    debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color|*-256color|xterm-kitty) color_prompt=yes;;
+xterm-color | *-256color | xterm-kitty) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -59,11 +59,11 @@ esac
 # fi
 
 battery_status() {
-    batman check --icon 2> /dev/null
+    batman check --icon 2>/dev/null
 }
 
 git_status() {
-    MYSTATUS=$(git status -sb --untracked-files=no --ignore-submodules 2> /dev/null | awk '
+    MYSTATUS=$(git status -sb --untracked-files=no --ignore-submodules 2>/dev/null | awk '
     /^##/ { branch = substr($0, 4) }
     /^[[:space:]]+[A-Z]/ { count += gsub(/[[:upper:]]/, "", $1) }
     END { if (count > 0) printf("%s *%d", branch, count); else printf("%s", branch)}
@@ -82,8 +82,8 @@ green_bg_black_fg='\[\e[42;30m\]'
 blue_bg_green_fg='\[\e[44;32m\]'
 blue_bg_black_fg='\[\e[44;30m\]'
 # yellow_bold='\[\e[01;33m\]'
-blue_bold='\[\e[01;34m\]'  
-blue='\[\e[01;34m\]'  
+blue_bold='\[\e[01;34m\]'
+blue='\[\e[01;34m\]'
 # purple_bold='\[\e[01;35m\]'
 # cyan_bold='\[\e[01;36m\]'
 # white_bold='\[\e[01;37m\]'
@@ -101,18 +101,18 @@ clear='\[\e[00m\]'
 MYHOST=$(hostnamectl | grep Operating | cut -d ':' -f2 | cut -d 't' -f2)
 
 if [ "$color_prompt" = yes ]; then
-    # # version with slants 
+    # # version with slants
     # MYUSER="${debian_chroot:+($debian_chroot)}${green_bg_black_fg}\u on 󰣭$MYHOST \$(battery_status) ${blue_bg_green_fg}"
     # MYPATH="${blue_bg_black_fg}\w${clear}${blue}"
     # MYGIT="${clear} \$(git_status)"
     # PS1="\n$MYUSER$MYPATH$MYGIT\n⚡ "
-    # version without slants 
+    # version without slants
     PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 󰣭$MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-unset color_prompt 
+unset color_prompt
 # unset force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -128,7 +128,7 @@ unset color_prompt
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='lsd'
-    alias l='ls -lah --color=always'
+    alias l='ls -lAh --color=always'
     alias grep='grep --color=auto'
 fi
 
@@ -152,6 +152,8 @@ alias cd..='cd ..'
 alias P='cd ~/projects/'
 alias N='cd ~/Documents/notes'
 alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
+alias lazy='NVIM_APPNAME=lazyvim nvim'
+alias top='btop'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -177,7 +179,6 @@ alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 #     fi
 # fi
 
-
 # Environment variables
 
 export PATH=/bin:/home/tdeneire/.cargo/bin:/home/tdeneire/.local/bin:/home/tdeneire/bin:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/home/tdeneire/go/bin:$PATH
@@ -187,7 +188,7 @@ export EDITOR='nvim'
 
 # Fzf
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f /home/tdeneire/.fzf.bash ] && source /home/tdeneire/.fzf.bash
 
 # Zoxide
 
@@ -202,7 +203,7 @@ export _ZO_RESOLVE_SYMLINKS=1
 # if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
 
 # Atuin
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+[[ -f /home/tdeneire/.bash-preexec.sh ]] && source /home/tdeneire/.bash-preexec.sh
 export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
