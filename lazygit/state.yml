@@ -1,0 +1,62 @@
+lastupdatecheck: 0
+recentrepos:
+    - /home/tdeneire/Dropbox/code/dotfiles
+    - /home/tdeneire/Dropbox/brocade/source
+    - /home/tdeneire/Dropbox/code/nvim
+    - /home/tdeneire/Dropbox/code/python/meemoo-sip
+    - /home/tdeneire/Dropbox/brocade/packages/go
+    - /home/tdeneire/projects/code/go/sesh
+    - /home/tdeneire/Dropbox/code/go/sesh
+    - /home/tdeneire/Dropbox/code/js/fablepictor
+    - /home/tdeneire/projects/code/dotfiles
+    - /home/tdeneire/Dropbox/code/bash
+    - /home/tdeneire/projects/code/bash
+    - /home/tdeneire/Dropbox/code/python/AC-RS
+    - /home/tdeneire/Dropbox/code/lua/lsp-in-gutter.nvim
+    - /home/tdeneire/projects/code/lazyvim
+    - /home/tdeneire/.config/nvim
+    - /home/tdeneire/projects/code/nvim
+    - /home/tdeneire/Dropbox/code/js/bookman
+    - /home/tdeneire/Dropbox/brocade/packages/vscode
+    - /home/tdeneire/Dropbox/brocade/packages/sketch-components
+    - /home/tdeneire/Dropbox/code/go/predict
+    - /home/tdeneire/Dropbox/websites/mondieux/development
+    - /home/tdeneire/Dropbox/websites/tomdeneire
+    - /home/tdeneire/Dropbox/code/rust/predict
+    - /home/tdeneire/Dropbox/code/zed/zed-spunkshui
+    - /home/tdeneire/projects/code/zed/zed-spunkshui
+    - /home/tdeneire/Dropbox/code/python/AI4C
+    - /home/tdeneire/Dropbox/code/lua/stylize
+    - /home/tdeneire/Dropbox/code/js/judo
+    - /home/tdeneire/Dropbox/code/go/batman
+    - /home/tdeneire/Dropbox/code/python/dtd2schema
+    - /home/tdeneire/projects/code/js/judo
+    - /home/tdeneire/Dropbox/code/python/meemoo-sip/doc/BaseSIPcreator_OBBrugge
+    - /home/tdeneire/projects/code/python/AI4C
+    - /home/tdeneire/projects/websites/hugo/naomilombaert
+    - /home/tdeneire/projects/code/python/openai/test
+    - /home/tdeneire/Dropbox/code/python/openai/test
+    - /home/tdeneire/Dropbox/code/rust/cdjumper
+    - /home/tdeneire/Dropbox/websites/tomdeneire/confident_coding/doc/Huberman-Lab-Podcast-Transcripts
+    - /home/tdeneire/Dropbox/code/rust/codewod
+    - /home/tdeneire/Dropbox/websites/hugo/naomilombaert
+    - /home/tdeneire/Dropbox/code/rust/testing
+    - /home/tdeneire/Dropbox/code/rust/yarr/hello_world
+    - /home/tdeneire/.tmux/plugins/t-smart-tmux-session-manager
+    - /home/tdeneire/Dropbox/code/tmux/t-smart-tmux-session-manager
+    - /home/tdeneire/projects/code/go/batman
+    - /home/tdeneire/projects/code/js/neovimmm
+startuppopupversion: 5
+lastversion: 0.44.1
+customcommandshistory:
+    - git enforce
+    - qa!
+    - git commit --amend --no-edit
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: when-maximised
