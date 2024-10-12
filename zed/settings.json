@@ -1,20 +1,28 @@
 {
-  "theme": "Spunkshui",
-  "base_keymap": "VSCode",
+  "theme": "Gruvbox Dark Hard",
   "features": {
-    "inline_completion_provider": "supermaven"
+    // Which inline completion provider to use.
+    "inline_completion_provider": "copilot"
   },
+  "auto_install_extensions": {
+    "html": true,
+    "xml": true
+  },
+  "base_keymap": "VSCode",
   "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_font_fallbacks": ["Zed Plex Mono"],
   "buffer_font_size": 30,
   "buffer_font_weight": 450,
   "ui_font_family": "FiraCode Nerd Font",
+  "ui_font_fallbacks": ["Zed Plex Mono"],
   "ui_font_weight": 450,
   "ui_font_size": 30,
   "vim_mode": true,
   "cursor_blink": false,
   "current_line_highlight": "all",
   "show_completions_on_input": true,
-  "show_completion_documentation": false,
+  "use_system_path_prompts": false,
+  "show_completion_documentation": true,
   "unnecessary_code_fade": 0.5,
   "show_wrap_guides": true,
   "wrap_guides": [80],
