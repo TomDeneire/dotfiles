@@ -3,9 +3,12 @@ local mux = wezterm.mux
 
 local config = {}
 
-function external_monitor()
+local function external_monitor()
     local cmd = "xdpyinfo | grep dimensions | awk '{print $2}'"
     local handle = io.popen(cmd)
+    if not handle then
+        return false
+    end
     local output = handle:read('*a')
     local resolution = output:gsub('[\n\r]', '')
     handle:close()
