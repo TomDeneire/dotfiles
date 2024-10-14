@@ -47,7 +47,7 @@ config.front_end = "WebGpu"
 config.webgpu_force_fallback_adapter = false
 config.webgpu_power_preference = "HighPerformance"
 
-config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 wezterm.on("gui-startup", function()
     local tab, pane, window = mux.spawn_window(cmd or {})
