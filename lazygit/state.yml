@@ -1,18 +1,22 @@
 lastupdatecheck: 0
 recentrepos:
-    - /home/tdeneire/Dropbox/code/dotfiles
+    - /home/tdeneire/projects/code/dotfiles
+    - /home/tdeneire/projects/code/bash
     - /home/tdeneire/Dropbox/brocade/source
     - /home/tdeneire/Dropbox/code/nvim
-    - /home/tdeneire/Dropbox/code/python/meemoo-sip
+    - /home/tdeneire/Dropbox/code/lua/lsp-in-gutter.nvim
+    - /home/tdeneire/.tmux/plugins/tmux-nerd-font-window-name
     - /home/tdeneire/Dropbox/brocade/packages/go
+    - /home/tdeneire/Dropbox/code/js/fablepictor
+    - /home/tdeneire/Dropbox/websites/tomdeneire
+    - /home/tdeneire/Dropbox/code/lazyvim
+    - /home/tdeneire/Dropbox/code/dotfiles
+    - /home/tdeneire/Dropbox/code/python/meemoo-sip/doc/BaseSIPcreator_OBBrugge
+    - /home/tdeneire/Dropbox/code/python/meemoo-sip
     - /home/tdeneire/projects/code/go/sesh
     - /home/tdeneire/Dropbox/code/go/sesh
-    - /home/tdeneire/Dropbox/code/js/fablepictor
-    - /home/tdeneire/projects/code/dotfiles
     - /home/tdeneire/Dropbox/code/bash
-    - /home/tdeneire/projects/code/bash
     - /home/tdeneire/Dropbox/code/python/AC-RS
-    - /home/tdeneire/Dropbox/code/lua/lsp-in-gutter.nvim
     - /home/tdeneire/projects/code/lazyvim
     - /home/tdeneire/.config/nvim
     - /home/tdeneire/projects/code/nvim
@@ -21,7 +25,6 @@ recentrepos:
     - /home/tdeneire/Dropbox/brocade/packages/sketch-components
     - /home/tdeneire/Dropbox/code/go/predict
     - /home/tdeneire/Dropbox/websites/mondieux/development
-    - /home/tdeneire/Dropbox/websites/tomdeneire
     - /home/tdeneire/Dropbox/code/rust/predict
     - /home/tdeneire/Dropbox/code/zed/zed-spunkshui
     - /home/tdeneire/projects/code/zed/zed-spunkshui
@@ -31,7 +34,6 @@ recentrepos:
     - /home/tdeneire/Dropbox/code/go/batman
     - /home/tdeneire/Dropbox/code/python/dtd2schema
     - /home/tdeneire/projects/code/js/judo
-    - /home/tdeneire/Dropbox/code/python/meemoo-sip/doc/BaseSIPcreator_OBBrugge
     - /home/tdeneire/projects/code/python/AI4C
     - /home/tdeneire/projects/websites/hugo/naomilombaert
     - /home/tdeneire/projects/code/python/openai/test
