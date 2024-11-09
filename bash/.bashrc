@@ -59,7 +59,9 @@ esac
 # fi
 
 battery_status() {
-    batman check --icon 2>/dev/null
+    # batman check --icon 2>/dev/null
+    STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk {'print $2'})
+    echo "@ $STATUS"
 }
 
 git_status() {
@@ -142,7 +144,6 @@ alias ....='cd ../../../'
 alias j='cd $(cdjumper fuzzy)'
 alias rm='gio trash'
 alias cat="batcat --style=plain"
-alias B='cd ~/Dropbox/brocade/source/data'
 alias C='cd ~/projects/code'
 alias D='cd ~/Desktop'
 alias Do='cd ~/Downloads'
