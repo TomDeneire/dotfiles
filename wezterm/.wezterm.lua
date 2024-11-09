@@ -12,7 +12,11 @@ local function external_monitor()
     local output = handle:read('*a')
     local resolution = output:gsub('[\n\r]', '')
     handle:close()
-    return resolution == "5760x2160"
+    if resolution == "1920x1080" then
+        return "monitor"
+    else
+        return "laptop"
+    end
 end
 
 -- MesloLGL for missing glyphs
@@ -29,13 +33,18 @@ config.window_padding = {
 
 config.enable_tab_bar = false
 
-local font_size = 18.5
+local font_size = 13.5
 local line_height = 1.2
 
-if external_monitor() then
-    font_size = 23.5
-    line_height = 1.2
-end
+-- if external_monitor() == "monitor" then
+--     font_size = 23.5
+--     line_height = 1.2
+-- end
+--
+-- if external_monitor() == "tv" then
+--     font_size = 15.5
+--     line_height = 1.3
+-- end
 
 config.font_size = font_size
 config.line_height = line_height
