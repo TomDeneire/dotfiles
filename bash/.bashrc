@@ -213,3 +213,5 @@ export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
+
+. "$HOME/.atuin/bin/env"
