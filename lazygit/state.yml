@@ -1,5 +1,23 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/tdeneire/projects/websites/tomdeneire.github.io
+    - /home/tdeneire/Dropbox/websites/mondieux/development
+    - /home/tdeneire/projects/websites/mondieux/development
+    - /home/tdeneire/Dropbox/websites/brainy
+    - /home/tdeneire/projects/websites/brainy
+    - /home/tdeneire/projects/websites/brainmanager/development/brainmanager
+    - /home/tdeneire/Dropbox/code/zed/zed-spunkshui
+    - /home/tdeneire/projects/code/zed/zed-spunkshui
+    - /home/tdeneire/Dropbox/code/python/meemoo-sip
+    - /home/tdeneire/projects/code/python/meemoo-sip
+    - /home/tdeneire/projects/code/python/AI4C
+    - /home/tdeneire/projects/code/python/AC-RS
+    - /home/tdeneire/projects/code/lua/lsp-in-gutter.nvim
+    - /home/tdeneire/projects/code/nvim
+    - /home/tdeneire/Dropbox/code/lazyvim
+    - /home/tdeneire/projects/code/lazyvim
+    - /home/tdeneire/projects/code/js/neovimmm
+    - /home/tdeneire/Dropbox/code/dotfiles
     - /home/tdeneire/projects/code/dotfiles
     - /home/tdeneire/projects/code/bash
     - /home/tdeneire/Dropbox/brocade/source
@@ -9,32 +27,23 @@ recentrepos:
     - /home/tdeneire/Dropbox/brocade/packages/go
     - /home/tdeneire/Dropbox/code/js/fablepictor
     - /home/tdeneire/Dropbox/websites/tomdeneire
-    - /home/tdeneire/Dropbox/code/lazyvim
-    - /home/tdeneire/Dropbox/code/dotfiles
     - /home/tdeneire/Dropbox/code/python/meemoo-sip/doc/BaseSIPcreator_OBBrugge
-    - /home/tdeneire/Dropbox/code/python/meemoo-sip
     - /home/tdeneire/projects/code/go/sesh
     - /home/tdeneire/Dropbox/code/go/sesh
     - /home/tdeneire/Dropbox/code/bash
     - /home/tdeneire/Dropbox/code/python/AC-RS
-    - /home/tdeneire/projects/code/lazyvim
     - /home/tdeneire/.config/nvim
-    - /home/tdeneire/projects/code/nvim
     - /home/tdeneire/Dropbox/code/js/bookman
     - /home/tdeneire/Dropbox/brocade/packages/vscode
     - /home/tdeneire/Dropbox/brocade/packages/sketch-components
     - /home/tdeneire/Dropbox/code/go/predict
-    - /home/tdeneire/Dropbox/websites/mondieux/development
     - /home/tdeneire/Dropbox/code/rust/predict
-    - /home/tdeneire/Dropbox/code/zed/zed-spunkshui
-    - /home/tdeneire/projects/code/zed/zed-spunkshui
     - /home/tdeneire/Dropbox/code/python/AI4C
     - /home/tdeneire/Dropbox/code/lua/stylize
     - /home/tdeneire/Dropbox/code/js/judo
     - /home/tdeneire/Dropbox/code/go/batman
     - /home/tdeneire/Dropbox/code/python/dtd2schema
     - /home/tdeneire/projects/code/js/judo
-    - /home/tdeneire/projects/code/python/AI4C
     - /home/tdeneire/projects/websites/hugo/naomilombaert
     - /home/tdeneire/projects/code/python/openai/test
     - /home/tdeneire/Dropbox/code/python/openai/test
@@ -47,7 +56,6 @@ recentrepos:
     - /home/tdeneire/.tmux/plugins/t-smart-tmux-session-manager
     - /home/tdeneire/Dropbox/code/tmux/t-smart-tmux-session-manager
     - /home/tdeneire/projects/code/go/batman
-    - /home/tdeneire/projects/code/js/neovimmm
 startuppopupversion: 5
 lastversion: 0.44.1
 customcommandshistory:
