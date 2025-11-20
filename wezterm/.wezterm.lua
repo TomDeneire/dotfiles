@@ -23,13 +23,13 @@ end
 config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont', 'MesloLGL' }
 -- disable ligatures
 -- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-config.window_decorations = "RESIZE"
-config.window_padding = {
-    left = "21%",
-    right = "1%",
-    top = 10,
-    bottom = 5
-}
+--config.window_decorations = "RESIZE"
+-- config.window_padding = {
+--     left = "21%",
+--     right = "1%",
+--     top = 10,
+--     bottom = 5
+-- }
 
 config.enable_tab_bar = false
 
@@ -57,10 +57,11 @@ config.webgpu_force_fallback_adapter = false
 config.webgpu_power_preference = "HighPerformance"
 
 config.color_scheme = 'Gruvbox Dark (Gogh)'
+--config.window_background_opacity = 0.90
 
-wezterm.on("gui-startup", function()
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
-end)
+-- wezterm.on("gui-startup", function()
+--     local tab, pane, window = mux.spawn_window(cmd or {})
+--     window:gui_window():maximize()
+-- end)
 
 return config
