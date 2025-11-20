@@ -165,8 +165,8 @@
   {
     "context": "PromptLibrary",
     "bindings": {
-      // "ctrl-n": "prompt_library::NewPrompt",
-      // "ctrl-shift-s": "prompt_library::ToggleDefaultPrompt"
+      "ctrl-n": "prompt_library::NewPrompt",
+      "ctrl-shift-s": "prompt_library::ToggleDefaultPrompt"
     }
   },
   {
@@ -297,7 +297,7 @@
       "ctrl-shift-]": "editor::UnfoldLines",
       "ctrl-space": "editor::ShowCompletions",
       "ctrl-.": "editor::ToggleCodeActions",
-      // "alt-ctrl-r": "editor::RevealInFinder",
+      "alt-ctrl-r": "editor::RevealInFinder",
       "ctrl-alt-shift-c": "editor::DisplayCursorNames"
     }
   },
@@ -490,7 +490,7 @@
           "skip_prompt": false
         }
       ],
-      // "alt-ctrl-r": "project_panel::RevealInFinder",
+      "alt-ctrl-r": "project_panel::RevealInFinder",
       "alt-shift-f": "project_panel::NewSearchInDirectory",
       "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
