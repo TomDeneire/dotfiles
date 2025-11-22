@@ -152,6 +152,14 @@ alias P='cd ~/projects/'
 alias lazy='NVIM_APPNAME=lazyvim nvim'
 alias top='btop'
 
+t() {
+    sesh connect "$(
+        sesh list -tzi | fzf \
+            --ansi --no-sort -e \
+            --color='fg:white,pointer:yellow,hl+:yellow,bg+:black,hl:yellow,fg+:bright-white,border:black'
+    )"
+}
+
 cd() {
     builtin cd "$@" && l
 }
