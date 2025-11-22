@@ -110,7 +110,7 @@ pause
 
 ### bat
 sudo apt install bat -y
-ln -s ~/projects/dotfiles/btop ~/.config/btop
+ln -s ~/projects/dotfiles/bat ~/.config/bat
 pause
 
 ## lazygit
