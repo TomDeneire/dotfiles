@@ -59,7 +59,6 @@ esac
 # fi
 
 battery_status() {
-    # batman check --icon 2>/dev/null
     STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk {'print $2'})
     echo "@ $STATUS"
 }
@@ -141,7 +140,6 @@ fi
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias j='cd $(cdjumper fuzzy)'
 alias rm='gio trash'
 alias cat="batcat --style=plain"
 alias C='cd ~/projects/code'
@@ -151,8 +149,6 @@ alias T='cd ~/tmp'
 alias W='cd ~/projects/websites'
 alias cd..='cd ..'
 alias P='cd ~/projects/'
-alias N='cd ~/Documents/notes'
-alias Q='cd ~/Dropbox/brocade/packages/go/brocade.be/qtechng'
 alias lazy='NVIM_APPNAME=lazyvim nvim'
 alias top='btop'
 
@@ -186,14 +182,13 @@ cd() {
 
 # Environment variables
 
-export PATH=/bin:/home/tdeneire/.cargo/bin:/home/tdeneire/.local/bin:/home/tdeneire/bin:/home/tdeneire/bin:/home/tdeneire/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/home/tdeneire/go/bin:$PATH
-export BROCADE_REGISTRY=/home/tdeneire/registry.json
-export PYTHONPATH=/home/tdeneire/py3
+export PATH=/bin:/$HOME/.cargo/bin:/$HOME/.local/bin:/$HOME/bin:/$HOME/bin:/$HOME/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/$HOME/go/bin:$PATH
+export PYTHONPATH=/$HOME/py3
 export EDITOR='nvim'
 
 # Fzf
 
-# [ -f /home/tdeneire/.fzf.bash ] && source /home/tdeneire/.fzf.bash
+# [ -f /$HOME/.fzf.bash ] && source /$HOME/.fzf.bash
 
 # Zoxide
 
@@ -205,10 +200,10 @@ export _ZO_RESOLVE_SYMLINKS=1
 . "$HOME/.cargo/env"
 
 # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/home/tdeneire/google-cloud-sdk/path.bash.inc' ]; then . '/home/tdeneire/google-cloud-sdk/path.bash.inc'; fi
+# if [ -f '/$HOME/google-cloud-sdk/path.bash.inc' ]; then . '/$HOME/google-cloud-sdk/path.bash.inc'; fi
 
 # Atuin
-[[ -f /home/tdeneire/.bash-preexec.sh ]] && source /home/tdeneire/.bash-preexec.sh
+[[ -f /$HOME/.bash-preexec.sh ]] && source /$HOME/.bash-preexec.sh
 export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
