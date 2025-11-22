@@ -59,8 +59,9 @@ esac
 # fi
 
 battery_status() {
-    STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk {'print $2'})
-    echo "@ $STATUS"
+    local p
+    p=$(grep -m1 "POWER_SUPPLY_CAPACITY=" /sys/class/power_supply/BAT0/uevent 2>/dev/null)
+    [ -n "$p" ] && printf "@ %s%%" "${p#*=}"
 }
 
 git_status() {
@@ -74,41 +75,25 @@ git_status() {
     fi
 }
 
-# Color definitions
-
-# black_bold='\[\e[01;30m\]'
-# red_bold='\[\e[01;31m\]'
+# Color definitions (static)
 green_bold='\[\e[01;32m\]'
-green_bg_black_fg='\[\e[42;30m\]'
-blue_bg_green_fg='\[\e[44;32m\]'
-blue_bg_black_fg='\[\e[44;30m\]'
-# yellow_bold='\[\e[01;33m\]'
 blue_bold='\[\e[01;34m\]'
-blue='\[\e[01;34m\]'
-# purple_bold='\[\e[01;35m\]'
-# cyan_bold='\[\e[01;36m\]'
-# white_bold='\[\e[01;37m\]'
-# black='\[\e[00;30m\]'
-# red='\[\e[00;31m\]'
-# green='\[\e[00;32m\]'
-# yellow='\[\e[00;33m\]'
-# blue='\[\e[00;34m\]'
-# purple='\[\e[00;35m\]'
-# cyan='\[\e[00;36m\]'
-# white='\[\e[00;37m\]'
 clear='\[\e[00m\]'
 
-# section_separators = { left = '', right = '' },
-MYHOST=$(hostnamectl | grep Operating | cut -d ':' -f2 | cut -d 't' -f2)
+# OS name (static, computed once)
+. /etc/os-release
+MYHOST="$PRETTY_NAME"
 
+# Precompute static prompt components
+STATIC_DEBIAN_CHROOT=${debian_chroot:+($debian_chroot)}
+STATIC_USER="${green_bold}\u${clear}"
+STATIC_ON="on $MYHOST"
+STATIC_BLUE="${blue_bold}"
+STATIC_CLEAR="${clear}"
+
+# Prompt
 if [ "$color_prompt" = yes ]; then
-    # # version with slants
-    # MYUSER="${debian_chroot:+($debian_chroot)}${green_bg_black_fg}\u on 󰣭$MYHOST \$(battery_status) ${blue_bg_green_fg}"
-    # MYPATH="${blue_bg_black_fg}\w${clear}${blue}"
-    # MYGIT="${clear} \$(git_status)"
-    # PS1="\n$MYUSER$MYPATH$MYGIT\n⚡ "
-    # version without slants
-    PS1="\n${debian_chroot:+($debian_chroot)}${green_bold}\u ${clear}on 󰣭$MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
+    PS1="\n${STATIC_DEBIAN_CHROOT}${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -189,22 +174,15 @@ cd() {
 # fi
 
 # Environment variables
-
-export PATH=/bin:/$HOME/.cargo/bin:/$HOME/.local/bin:/$HOME/bin:/$HOME/bin:/$HOME/projects/code/bash:/sbin:/snap/bin:/usr/bin:/usr/games:/usr/local/bin:/usr/local/games:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/$HOME/go/bin:$PATH
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/projects/code/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/go/bin"
 export PYTHONPATH=/$HOME/py3
 export EDITOR='nvim'
 
-# Fzf
-
-# [ -f /$HOME/.fzf.bash ] && source /$HOME/.fzf.bash
-
 # Zoxide
-
 eval "$(zoxide init bash)"
 export _ZO_RESOLVE_SYMLINKS=1
 
 # Cargo
-
 . "$HOME/.cargo/env"
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -216,5 +194,4 @@ export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
-
 . "$HOME/.atuin/bin/env"
