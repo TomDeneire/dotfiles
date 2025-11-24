@@ -49,6 +49,9 @@ print "Downloading dotfiles"
 git clone https://github.com/TomDeneire/dotfiles ~/projects/dotfiles
 pause
 
+## Configure git
+ln -sf ~/projects/dotfiles/git ~/.config/git
+
 ## Configure bash
 print "Configuring bash"
 rm -f ~/.bashrc
