@@ -3,6 +3,7 @@
 # Helper functions
 
 print() {
+    echo
     echo "-----------------------------------------------------"
     echo "$1"
     echo "-----------------------------------------------------"
@@ -127,7 +128,7 @@ pause
 ### zoxide
 print "Installing zoxide"
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-ln -s /root/.local/bin ~/bin/zoxide
+export PATH="$PATH:/root/.local/bin"
 pause
 
 ### gio trash
@@ -146,7 +147,7 @@ print "Installing atuin"
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 source $HOME/.atuin/bin/env
 ln -s ~/projects/dotfiles/bash/.bash_profile ~/.bash_profile
-atuin init
+atuin init bash
 pause
 
 ### bat
@@ -242,6 +243,7 @@ GOLATEST=$(curl https://go.dev/VERSION?m=text | grep go)".linux-amd64.tar.gz"
 wget "https://go.dev/dl/$GOLATEST"
 sudo rm -rf /usr/local/go 
 sudo tar -C /usr/local -xzf "$GOLATEST"
+env PATH="$PATH:/usr/local/go/bin"
 pause
 
 ### sesh
