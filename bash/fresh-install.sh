@@ -20,16 +20,16 @@ pause() {
 
 ## Directory structure
 print "Installing directory structure"
-mkdir -p ~/.config
-mkdir -p ~/tmp
-mkdir -p ~/bin
-mkdir -p ~/projects
-mkdir -p ~/projects/code
-mkdir -p ~/projects/dotfiles
+mkdir -p $HOME/.config
+mkdir -p $HOME/tmp
+mkdir -p $HOME/bin
+mkdir -p $HOME/projects
+mkdir -p $HOME/projects/code
+mkdir -p $HOME/projects/dotfiles
 pause
 
 ## Change to temp directory
-cd ~/tmp || exit
+cd $HOME/tmp || exit
 
 ## Update and upgrade
 print "Updating and upgrading Ubuntu"
@@ -47,21 +47,21 @@ pause
 
 ## Download dotfiles
 print "Downloading dotfiles"
-git clone https://github.com/TomDeneire/dotfiles ~/projects/dotfiles
+git clone https://github.com/TomDeneire/dotfiles $HOME/projects/dotfiles
 pause
 
 ## Configure git
-ln -sf ~/projects/dotfiles/git ~/.config/git
+ln -sf $HOME/projects/dotfiles/git $HOME/.config/git
 
 ## Configure bash
 print "Configuring bash"
-rm -f ~/.bashrc
-ln -sf ~/projects/dotfiles/bash/.bashrc ~/.bashrc
-source ~/.bashrc
-ln -sf ~/projects/dotfiles/bash/.bash-preexec.sh ~/.bash-preexec.sh
-source ~/.bash-preexec.sh
-ln -sf ~/projects/dotfiles/git/git-prompt.sh ~/git-prompt.sh
-source ~/git-prompt.sh
+rm -f $HOME/.bashrc
+ln -sf $HOME/projects/dotfiles/bash/.bashrc $HOME/.bashrc
+source $HOME/.bashrc
+ln -sf $HOME/projects/dotfiles/bash/.bash-preexec.sh $HOME/.bash-preexec.sh
+source $HOME/.bash-preexec.sh
+ln -sf $HOME/projects/dotfiles/git/git-prompt.sh $HOME/git-prompt.sh
+source $HOME/git-prompt.sh
 pause
 
 ## General tools
@@ -95,7 +95,7 @@ pause
 ### tmux
 print "Installing tmux"
 sudo apt install tmux -y
-ln -s ~/projects/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s $HOME/projects/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 pause
 
 ### fzf (including fzf-tmux)
@@ -122,7 +122,7 @@ pause
 ### fdfind
 print "Installing fdfind"
 sudo apt install fd-find -y
-ln -s $(which fdfind) ~/bin/fd
+ln -s $(which fdfind) $HOME/bin/fd
 pause
 
 ### zoxide
@@ -139,21 +139,21 @@ pause
 ### btop
 print "Installing btop"
 sudo apt install btop -y
-ln -s ~/projects/dotfiles/btop ~/.config/btop
+ln -s $HOME/projects/dotfiles/btop $HOME/.config/btop
 pause
 
 ### atuin
 print "Installing atuin"
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 source $HOME/.atuin/bin/env
-ln -s ~/projects/dotfiles/bash/.bash_profile ~/.bash_profile
+ln -s $HOME/projects/dotfiles/bash/.bash_profile $HOME/.bash_profile
 atuin init bash
 pause
 
 ### bat
 print "Installing bat"
 sudo apt install bat -y
-ln -s ~/projects/dotfiles/bat ~/.config/bat
+ln -s $HOME/projects/dotfiles/bat $HOME/.config/bat
 pause
 
 ## lazygit
@@ -162,8 +162,8 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
-ln -s ~/projects/dotfiles/lazygit ~/.config/lazygit
-ln -s $(which lg) ~/bin/lg
+ln -s $HOME/projects/dotfiles/lazygit $HOME/.config/lazygit
+ln -s $(which lg) $HOME/bin/lg
 pause
 
 ## wezterm
@@ -173,19 +173,19 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update
 sudo apt install wezterm -y
-ln -s ~/projects/dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
+ln -s $HOME/projects/dotfiles/wezterm/.wezterm.lua $HOME/.wezterm.lua
 pause
 
 ## neovim
 print "Installing neovim"
 sudo apt install xclip -y
-mkdir -p ~/bin
+mkdir -p $HOME/bin
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 tar -xzf nvim-linux-x86_64.tar.gz
-mv nvim-linux-x86_64 ~/nvim
-ln -s ~/nvim/bin/nvim ~/bin/nvim
-git clone https://github.com/TomDeneire/nvim ~/projects/nvim
-ln -s ~/projects/nvim ~/.config/nvim
+mv nvim-linux-x86_64 $HOME/nvim
+ln -s $HOME/nvim/bin/nvim $HOME/bin/nvim
+git clone https://github.com/TomDeneire/nvim $HOME/projects/nvim
+ln -s $HOME/projects/nvim $HOME/.config/nvim
 pause
 
 ### npm/node
@@ -248,9 +248,9 @@ pause
 
 ### sesh
 print "Installing sesh"
-mkdir -p ~/projects/code/go
-git clone https://github.com/joshmedeski/sesh ~/projects/code/go/sesh
-cd ~/projects/code/go/sesh && go install
+mkdir -p $HOME/projects/code/go
+git clone https://github.com/joshmedeski/sesh $HOME/projects/code/go/sesh
+cd $HOME/projects/code/go/sesh && go install
 pause
 
 ## Uv for Python
@@ -278,5 +278,5 @@ pause
 
 ## Reactivate bash prompt
 print "Reactivating bash prompt"
-source ~/.bashrc
+source $HOME/.bashrc
 pause
