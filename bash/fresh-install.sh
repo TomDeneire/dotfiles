@@ -1,4 +1,5 @@
 #! /bin/bash
+set -euo pipefail
 
 # Helper functions
 
@@ -9,24 +10,11 @@ print_header() {
     echo "-----------------------------------------------------"
 }
 
-pause() {
-    echo
-    local prompt="${1:-Press any key to continue...}"
-    read -n 1 -s -r -p "$prompt"
-    echo
-}
-
 # INSTALLING A NEW TERMINAL ENVIRONMENT ON UBUNTU-BASED SYSTEMS
 
 ## Directory structure
 print_header "Installing directory structure"
-mkdir -p "$HOME/.config"
-mkdir -p "$HOME/tmp"
-mkdir -p "$HOME/bin"
-mkdir -p "$HOME/projects"
-mkdir -p "$HOME/projects/code"
-mkdir -p "$HOME/projects/dotfiles"
-pause
+mkdir -p "$HOME/.config" "$HOME/tmp" "$HOME/bin" "$HOME/projects/code" "$HOME/projects/dotfiles"
 
 ## Change to temp directory
 cd "$HOME/tmp" || exit
@@ -35,20 +23,16 @@ cd "$HOME/tmp" || exit
 print_header "Updating and upgrading Ubuntu"
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install software-properties-common -y
-pause
 
 ## git
 print_header "Installing git"
 sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt update -y
 sudo apt install git -y
-pause
 
 ## Download dotfiles
 print_header "Downloading dotfiles"
 git clone https://github.com/TomDeneire/dotfiles "$HOME/projects/dotfiles"
-pause
 
 ## Configure git
 ln -sf "$HOME/projects/dotfiles/git" "$HOME/.config/git"
@@ -57,102 +41,52 @@ ln -sf "$HOME/projects/dotfiles/git" "$HOME/.config/git"
 print_header "Configuring bash"
 rm -f "$HOME/.bashrc"
 ln -sf "$HOME/projects/dotfiles/bash/.bashrc" "$HOME/.bashrc"
-source "$HOME/.bashrc"
 ln -sf "$HOME/projects/dotfiles/bash/.bash-preexec.sh" "$HOME/.bash-preexec.sh"
-source "$HOME/.bash-preexec.sh"
-ln -sf "$HOME/projects/dotfiles/git/git-prompt.sh" "$HOME/git-prompt.sh"
-source "$HOME/git-prompt.sh"
-pause
 
 ## General tools
+print_header "Installing general tools"
+sudo apt install -y \
+    software-properties-common \
+    systemd \
+    build-essential \
+    zip unzip \
+    curl \
+    wget \
+    tmux \
+    fzf \
+    xsel \
+    tree \
+    jq \
+    fd-find \
+    libglib2.0-bin \
+    btop \
+    bat \
+    ripgrep \
+    xclip \
+    fontconfig
 
-### systemd
-print_header "Installing systemd"
-sudo apt install systemd -y
-pause
-
-### build tools (gcc compiler, make, ...)
-print_header "Installing build tools"
-sudo apt install build-essential -y
-pause
-
-### zip/unzip
-print_header "Installing zip/unzip"
-sudo apt install zip unzip -y
-pause
-
-### curl
-print_header "Installing curl"
-sudo apt install curl -y
-pause
-
-### wget
-print_header "Installing wget"
-sudo apt install wget -y
-pause
-
-### tmux
-print_header "Installing tmux"
-sudo apt install tmux -y
+### tmux config
 ln -sf "$HOME/projects/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
-pause
 
-### fzf (including fzf-tmux)
-print_header "Installing fzf"
-sudo apt install fzf -y
-pause
-
-### xsel
-print_header "Installing xsel"
-sudo apt install xsel -y
-pause
-
-### tree
-print_header "Installing tree"
-sudo apt install tree -y
-pause
-
-### jq
-print_header "Installing jq"
-sudo apt install jq -y
-pause
-
-### fdfind
-print_header "Installing fdfind"
-sudo apt install fd-find -y
+### fdfind symlink
 ln -sf "$(which fdfind)" "$HOME/bin/fd"
-pause
+
+### btop config
+ln -sf "$HOME/projects/dotfiles/btop" "$HOME/.config/btop"
+
+### bat config
+ln -sf "$HOME/projects/dotfiles/bat" "$HOME/.config/bat"
 
 ### zoxide
 print_header "Installing zoxide"
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 export PATH="$PATH:$HOME/.local/bin"
-pause
-
-### gio trash
-print_header "Installing gio trash"
-sudo apt install libglib2.0-bin -y
-pause
-
-### btop
-print_header "Installing btop"
-sudo apt install btop -y
-ln -sf "$HOME/projects/dotfiles/btop" "$HOME/.config/btop"
-pause
 
 ### atuin
 print_header "Installing atuin"
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 source "$HOME/.atuin/bin/env"
 ln -sf "$HOME/projects/dotfiles/bash/.bash_profile" "$HOME/.bash_profile"
-atuin init bash
-pause
-
-### bat
-print_header "Installing bat"
-sudo apt install bat -y
-ln -sf "$HOME/projects/dotfiles/bat" "$HOME/.config/bat"
-pause
 
 ## lazygit
 print_header "Installing lazygit"
@@ -162,7 +96,6 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
 ln -sf "$HOME/projects/dotfiles/lazygit" "$HOME/.config/lazygit"
 ln -sf "$(which lazygit)" "$HOME/bin/lg"
-pause
 
 ## wezterm
 print_header "Installing wezterm"
@@ -172,19 +105,15 @@ sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update
 sudo apt install wezterm -y
 ln -sf "$HOME/projects/dotfiles/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
-pause
 
 ## neovim
 print_header "Installing neovim"
-sudo apt install xclip -y
-mkdir -p "$HOME/bin"
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 tar -xzf nvim-linux-x86_64.tar.gz
 mv nvim-linux-x86_64 "$HOME/nvim"
 ln -sf "$HOME/nvim/bin/nvim" "$HOME/bin/nvim"
 git clone https://github.com/TomDeneire/nvim "$HOME/projects/nvim"
 ln -sf "$HOME/projects/nvim" "$HOME/.config/nvim"
-pause
 
 ### npm/node
 print_header "Installing npm/node"
@@ -193,23 +122,15 @@ export NVM_DIR="$HOME/.nvm"
 source "$NVM_DIR/nvm.sh"
 nvm install --lts
 nvm alias default lts/*
-pause
-
-### ripgrep
-print_header "Installing ripgrep"
-sudo apt install ripgrep -y
-pause
 
 ### tree-sitter-cli
 print_header "Installing tree-sitter-cli"
 npm install -g tree-sitter-cli
-pause
 
 ### Python support
 print_header "Installing Python support for Neovim"
 sudo apt install python3-venv -y  # for LSP support
-sudo apt install python3-neovim -y
-pause
+pip install pynvim
 
 ## Docker
 print_header "Installing Docker"
@@ -233,7 +154,6 @@ EOF
 ### Install Docker
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-pause
 
 ## Go
 print_header "Installing Go"
@@ -242,39 +162,32 @@ wget "https://go.dev/dl/$GOLATEST"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "$GOLATEST"
 export PATH="$PATH:/usr/local/go/bin"
-pause
 
 ### sesh
 print_header "Installing sesh"
 mkdir -p "$HOME/projects/code/go"
 git clone https://github.com/joshmedeski/sesh "$HOME/projects/code/go/sesh"
 (cd "$HOME/projects/code/go/sesh" && go install)
-pause
 
 ## Uv for Python
 print_header "Installing uv"
 curl -LsSf https://astral.sh/uv/install.sh | sh
-source "$HOME/.local/bin/env"
-pause
 
 ## Rust
 print_header "Installing Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
-pause
 
 ### lsd
 print_header "Installing lsd"
 cargo install lsd
-pause
 
 ## Nerdfonts
 print_header "Installing Nerdfonts"
-sudo apt install fontconfig -y
 bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)"
-pause
 
-## Reactivate bash prompt
-print_header "Reactivating bash prompt"
-source "$HOME/.bashrc"
-pause
+## Clean up temp files
+print_header "Cleaning up"
+rm -f "$HOME/tmp/lazygit.tar.gz" "$HOME/tmp/lazygit"
+rm -f "$HOME/tmp/nvim-linux-x86_64.tar.gz"
+rm -f "$HOME/tmp/$GOLATEST"

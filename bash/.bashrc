@@ -166,7 +166,7 @@ cd() {
 
 # Environment variables
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/projects/code/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/go/bin"
-export PYTHONPATH=/$HOME/py3
+export PYTHONPATH="$HOME/py3"
 export EDITOR='nvim'
 
 # Zoxide
