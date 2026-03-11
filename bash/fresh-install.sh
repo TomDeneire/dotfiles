@@ -2,7 +2,7 @@
 
 # Helper functions
 
-print() {
+print_header() {
     echo
     echo "-----------------------------------------------------"
     echo "$1"
@@ -11,214 +11,212 @@ print() {
 
 pause() {
     echo
-    local prompt="${1:-Press any key to continue...}" 
+    local prompt="${1:-Press any key to continue...}"
     read -n 1 -s -r -p "$prompt"
     echo
 }
- 
+
 # INSTALLING A NEW TERMINAL ENVIRONMENT ON UBUNTU-BASED SYSTEMS
 
 ## Directory structure
-print "Installing directory structure"
-mkdir -p $HOME/.config
-mkdir -p $HOME/tmp
-mkdir -p $HOME/bin
-mkdir -p $HOME/projects
-mkdir -p $HOME/projects/code
-mkdir -p $HOME/projects/dotfiles
+print_header "Installing directory structure"
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/tmp"
+mkdir -p "$HOME/bin"
+mkdir -p "$HOME/projects"
+mkdir -p "$HOME/projects/code"
+mkdir -p "$HOME/projects/dotfiles"
 pause
 
 ## Change to temp directory
-cd $HOME/tmp || exit
+cd "$HOME/tmp" || exit
 
 ## Update and upgrade
-print "Updating and upgrading Ubuntu"
+print_header "Updating and upgrading Ubuntu"
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install software-properties-common -y
 pause
 
 ## git
-print "Installing git"
+print_header "Installing git"
 sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt update -y
 sudo apt install git -y
 pause
 
 ## Download dotfiles
-print "Downloading dotfiles"
-git clone https://github.com/TomDeneire/dotfiles $HOME/projects/dotfiles
+print_header "Downloading dotfiles"
+git clone https://github.com/TomDeneire/dotfiles "$HOME/projects/dotfiles"
 pause
 
 ## Configure git
-ln -sf $HOME/projects/dotfiles/git $HOME/.config/git
+ln -sf "$HOME/projects/dotfiles/git" "$HOME/.config/git"
 
 ## Configure bash
-print "Configuring bash"
-rm -f $HOME/.bashrc
-ln -sf $HOME/projects/dotfiles/bash/.bashrc $HOME/.bashrc
-source $HOME/.bashrc
-ln -sf $HOME/projects/dotfiles/bash/.bash-preexec.sh $HOME/.bash-preexec.sh
-source $HOME/.bash-preexec.sh
-ln -sf $HOME/projects/dotfiles/git/git-prompt.sh $HOME/git-prompt.sh
-source $HOME/git-prompt.sh
+print_header "Configuring bash"
+rm -f "$HOME/.bashrc"
+ln -sf "$HOME/projects/dotfiles/bash/.bashrc" "$HOME/.bashrc"
+source "$HOME/.bashrc"
+ln -sf "$HOME/projects/dotfiles/bash/.bash-preexec.sh" "$HOME/.bash-preexec.sh"
+source "$HOME/.bash-preexec.sh"
+ln -sf "$HOME/projects/dotfiles/git/git-prompt.sh" "$HOME/git-prompt.sh"
+source "$HOME/git-prompt.sh"
 pause
 
 ## General tools
 
 ### systemd
-print "Installing systemd"
+print_header "Installing systemd"
 sudo apt install systemd -y
 pause
 
 ### build tools (gcc compiler, make, ...)
-print "Installing build tools"
+print_header "Installing build tools"
 sudo apt install build-essential -y
 pause
 
-
 ### zip/unzip
-print "Installing zip/unzip"
+print_header "Installing zip/unzip"
 sudo apt install zip unzip -y
 pause
 
 ### curl
-print "Installing curl"
+print_header "Installing curl"
 sudo apt install curl -y
 pause
 
 ### wget
-print "Installing wget"
+print_header "Installing wget"
 sudo apt install wget -y
 pause
 
 ### tmux
-print "Installing tmux"
+print_header "Installing tmux"
 sudo apt install tmux -y
-ln -s $HOME/projects/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
+ln -sf "$HOME/projects/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 pause
 
 ### fzf (including fzf-tmux)
-print "Installing fzf"
+print_header "Installing fzf"
 sudo apt install fzf -y
 pause
 
-
 ### xsel
-print "Installing xsel"
+print_header "Installing xsel"
 sudo apt install xsel -y
 pause
 
 ### tree
-print "Installing tree"
+print_header "Installing tree"
 sudo apt install tree -y
 pause
 
 ### jq
-print "Installing jq"
+print_header "Installing jq"
 sudo apt install jq -y
 pause
 
 ### fdfind
-print "Installing fdfind"
+print_header "Installing fdfind"
 sudo apt install fd-find -y
-ln -s $(which fdfind) $HOME/bin/fd
+ln -sf "$(which fdfind)" "$HOME/bin/fd"
 pause
 
 ### zoxide
-print "Installing zoxide"
+print_header "Installing zoxide"
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-export PATH="$PATH:/root/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 pause
 
 ### gio trash
-print "Installing gio trash"
+print_header "Installing gio trash"
 sudo apt install libglib2.0-bin -y
 pause
 
 ### btop
-print "Installing btop"
+print_header "Installing btop"
 sudo apt install btop -y
-ln -s $HOME/projects/dotfiles/btop $HOME/.config/btop
+ln -sf "$HOME/projects/dotfiles/btop" "$HOME/.config/btop"
 pause
 
 ### atuin
-print "Installing atuin"
+print_header "Installing atuin"
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-source $HOME/.atuin/bin/env
-ln -s $HOME/projects/dotfiles/bash/.bash_profile $HOME/.bash_profile
+source "$HOME/.atuin/bin/env"
+ln -sf "$HOME/projects/dotfiles/bash/.bash_profile" "$HOME/.bash_profile"
 atuin init bash
 pause
 
 ### bat
-print "Installing bat"
+print_header "Installing bat"
 sudo apt install bat -y
-ln -s $HOME/projects/dotfiles/bat $HOME/.config/bat
+ln -sf "$HOME/projects/dotfiles/bat" "$HOME/.config/bat"
 pause
 
 ## lazygit
-print "Installing lazygit"
+print_header "Installing lazygit"
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
-ln -s $HOME/projects/dotfiles/lazygit $HOME/.config/lazygit
-ln -s $(which lg) $HOME/bin/lg
+ln -sf "$HOME/projects/dotfiles/lazygit" "$HOME/.config/lazygit"
+ln -sf "$(which lazygit)" "$HOME/bin/lg"
 pause
 
 ## wezterm
-print "Installing wezterm"
+print_header "Installing wezterm"
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
 sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update
 sudo apt install wezterm -y
-ln -s $HOME/projects/dotfiles/wezterm/.wezterm.lua $HOME/.wezterm.lua
+ln -sf "$HOME/projects/dotfiles/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 pause
 
 ## neovim
-print "Installing neovim"
+print_header "Installing neovim"
 sudo apt install xclip -y
-mkdir -p $HOME/bin
+mkdir -p "$HOME/bin"
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 tar -xzf nvim-linux-x86_64.tar.gz
-mv nvim-linux-x86_64 $HOME/nvim
-ln -s $HOME/nvim/bin/nvim $HOME/bin/nvim
-git clone https://github.com/TomDeneire/nvim $HOME/projects/nvim
-ln -s $HOME/projects/nvim $HOME/.config/nvim
+mv nvim-linux-x86_64 "$HOME/nvim"
+ln -sf "$HOME/nvim/bin/nvim" "$HOME/bin/nvim"
+git clone https://github.com/TomDeneire/nvim "$HOME/projects/nvim"
+ln -sf "$HOME/projects/nvim" "$HOME/.config/nvim"
 pause
 
 ### npm/node
-print "Installing npm/node"
+print_header "Installing npm/node"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
-source $NVM_DIR/nvm.sh
+source "$NVM_DIR/nvm.sh"
 nvm install --lts
 nvm alias default lts/*
 pause
 
 ### ripgrep
-print "Installing ripgrep"
+print_header "Installing ripgrep"
 sudo apt install ripgrep -y
 pause
 
 ### tree-sitter-cli
-print "Installing tree-sitter-cli"
+print_header "Installing tree-sitter-cli"
 npm install -g tree-sitter-cli
 pause
 
 ### Python support
-print "Installing Python support for Neovim"
-sudo apt install python3.10-venv -y  # for LSP support
+print_header "Installing Python support for Neovim"
+sudo apt install python3-venv -y  # for LSP support
 sudo apt install python3-neovim -y
 pause
 
 ## Docker
-print "Installing Docker"
-sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
+print_header "Installing Docker"
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc 2>/dev/null | cut -f1) 2>/dev/null || true
 ### Add Docker's official GPG key:
 sudo apt update
-sudo apt install ca-certificates curl
+sudo apt install ca-certificates curl -y
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -238,45 +236,45 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 pause
 
 ## Go
-print "Installing Go"
+print_header "Installing Go"
 GOLATEST=$(curl https://go.dev/VERSION?m=text | grep go)".linux-amd64.tar.gz"
 wget "https://go.dev/dl/$GOLATEST"
-sudo rm -rf /usr/local/go 
+sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "$GOLATEST"
-env PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 pause
 
 ### sesh
-print "Installing sesh"
-mkdir -p $HOME/projects/code/go
-git clone https://github.com/joshmedeski/sesh $HOME/projects/code/go/sesh
-cd $HOME/projects/code/go/sesh && go install
+print_header "Installing sesh"
+mkdir -p "$HOME/projects/code/go"
+git clone https://github.com/joshmedeski/sesh "$HOME/projects/code/go/sesh"
+(cd "$HOME/projects/code/go/sesh" && go install)
 pause
 
 ## Uv for Python
-print "Installing uv"
+print_header "Installing uv"
 curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env
+source "$HOME/.local/bin/env"
 pause
 
 ## Rust
-print "Installing Rust"
+print_header "Installing Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
+source "$HOME/.cargo/env"
 pause
 
 ### lsd
-print "Installing lsd"
+print_header "Installing lsd"
 cargo install lsd
 pause
 
 ## Nerdfonts
-print "Installing Nerdfonts"
+print_header "Installing Nerdfonts"
 sudo apt install fontconfig -y
-bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)" 
+bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)"
 pause
 
 ## Reactivate bash prompt
-print "Reactivating bash prompt"
-source $HOME/.bashrc
+print_header "Reactivating bash prompt"
+source "$HOME/.bashrc"
 pause
