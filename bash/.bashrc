@@ -135,6 +135,7 @@ alias W='cd ~/projects/websites'
 alias cd..='cd ..'
 alias P='cd ~/projects/'
 alias top='btop'
+alias tt='source /home/tdeneire/projects/code/bash/tt'
 
 cd() {
     builtin cd "$@" && l
