@@ -21,6 +21,7 @@ end
 
 -- MesloLGL for missing glyphs
 config.font = wezterm.font_with_fallback { 'FiraCodeNerdFont', 'MesloLGL' }
+config.warn_about_missing_glyphs = false
 -- disable ligatures
 -- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 --config.window_decorations = "RESIZE"
