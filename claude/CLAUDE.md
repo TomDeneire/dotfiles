@@ -70,11 +70,14 @@ For multi-step tasks, state a brief plan:
 
 ### Comments
 
-- Standard: Comments should be declarative and timeless.
-- Anti-Pattern: // Workaround for yyyy not working in NL locale
-- Preferred: // Use language-neutral date format to avoid locale-specific parsing issues
+Focus on intent and current state. Avoid historical references to past bugs.
+
+| Style            | Example                                                       |
+| :--------------- | :------------------------------------------------------------ |
+| **Anti-Pattern** | `// Workaround for yyyy not working in NL locale`             |
+| **Preferred**    | `// Use language-neutral date format for locale independence` |
 
 ## Git
 
 - Always use the format `(commit type): description` for commits.
-- Available commit types are preferably: (feat), (fix), (bug), (chore), (style), (doc), (sec), (perf)
+- Available commit types are preferably: (feat), (fix), (bug), (chore), (refactor), (style), (doc), (sec), (perf)
