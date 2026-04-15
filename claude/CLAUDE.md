@@ -77,8 +77,13 @@ Focus on intent and current state. Avoid historical references to past bugs.
 | **Anti-Pattern** | `// Workaround for yyyy not working in NL locale`             |
 | **Preferred**    | `// Use language-neutral date format for locale independence` |
 
+### Documentation
+
+- If the project has a README.md and a new feature is introduced that is noteworthy, ask to add this feature to the README.md.
+
 ## Git
 
 - Always ask before committing.
+- When the user starts asking about a new feature and the previous one is uncommitted, ask if they want to commit first.
 - Always use the format `(commit type): description` for commits.
 - Use one of the following commit types: (feat), (fix), (bug), (chore), (refactor), (style), (doc), (sec), (perf)
