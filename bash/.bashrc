@@ -98,6 +98,7 @@ alias cd..='cd ..'
 alias P='cd ~/projects/'
 alias top='btop'
 alias tt='source /home/tdeneire/projects/code/bash/tt'
+alias nvimg='nvim $(git diff --name-only)'
 
 cd() {
     builtin cd "$@" && l
