@@ -79,5 +79,6 @@ Focus on intent and current state. Avoid historical references to past bugs.
 
 ## Git
 
+- Always ask before committing.
 - Always use the format `(commit type): description` for commits.
-- Available commit types are preferably: (feat), (fix), (bug), (chore), (refactor), (style), (doc), (sec), (perf)
+- Use one of the following commit types: (feat), (fix), (bug), (chore), (refactor), (style), (doc), (sec), (perf)
