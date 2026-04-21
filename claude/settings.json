@@ -23,9 +23,9 @@
       "Bash(tail:*)",
       "Bash(wc:*)",
       "Bash(which:*)",
-      "Bash(echo:*)",
-      "Bash(pwd)",
+      "Bash(pwd:*)",
       "Bash(tree:*)",
+      "Bash(echo:*)",
       "Bash(gh:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
@@ -34,18 +34,23 @@
       "Bash(git show-ref:*)",
       "Bash(git branch:*)",
       "Bash(git branch -v:*)",
+      "Bash(git remote:*)",
       "Bash(git remote -v:*)",
-      "Bash(ls:*)",
-      "Bash(pwd:*)",
-      "Bash(which:*)",
+      "Bash(git rev-parse:*)",
       "Bash(nvim --version:*)",
       "Bash(node --version:*)",
-      "Bash(npm list:*)",
-      "Bash(git remote:*)",
-      "Bash(git rev-parse:*)",
       "Bash(node:*)",
+      "Bash(npm list:*)",
       "Bash(npm:*)",
-      "Bash(nvim --version:*)"
+      "Bash(dotnet build:*)",
+      "Bash(dotnet run:*)",
+      "Bash(dotnet ef:*)",
+      "Bash(go build:*)",
+      "Bash(go run:*)",
+      "Bash(uv run:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv add:*)",
+      "Bash(uv pip:*)"
     ]
   },
   "extraKnownMarketplaces": {
@@ -58,5 +63,6 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true
-  }
+  },
+  "effortLevel": "medium"
 }
