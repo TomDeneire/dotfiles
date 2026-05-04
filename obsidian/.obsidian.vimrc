@@ -1,0 +1,1 @@
+/home/tdeneire/OneDrive/Notes/.obsidian.vimrc
