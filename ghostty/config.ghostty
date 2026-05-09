@@ -1,0 +1,8 @@
+font-family = "Fira Code Medium"
+font-size = 13.5
+adjust-cell-height = 20%
+theme = "Gruvbox Dark"
+adjust-cell-height = 20%
+gtk-tabs-location = hidden
+copy-on-select = clipboard
+window-theme = ghostty
