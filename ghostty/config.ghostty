@@ -1,8 +1,9 @@
 font-family = "Fira Code Medium"
 font-size = 13.5
-theme = "Gruvbox Dark"
+theme = "gruvbox_dark_gogh"
 adjust-cell-height = 20%
 gtk-tabs-location = hidden
 copy-on-select = clipboard
 window-theme = ghostty
 background-opacity = 0.95
+bold-is-bright = true
