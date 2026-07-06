@@ -81,6 +81,18 @@ Focus on intent and current state. Avoid historical references to past bugs.
 
 - If the project has a README.md and a new feature is introduced that is noteworthy, ask to add this feature to the README.md.
 
+### Python
+
+- Use `uv` for dependency management, running scripts, and virtual environments.
+- Always add type annotations to function signatures (parameters and return type).
+- Use `ty` (https://github.com/astral-sh/ty) as the static type checker.
+- Every function must have a docstring directly under the `def` line, using `"""..."""`, as a short one-line description.
+- Variables, identifiers, docstrings, and comments are always in English.
+- Use `ruff` for linting and `ruff format` for formatting, following ruff's default guidelines.
+- Use `pytest` as the default testing framework.
+- Keep all tool configuration (ruff, ty, pytest) centralized in `pyproject.toml` rather than scattered config files.
+- Prefer `pathlib` over `os.path` for filesystem path handling.
+
 ## Git
 
 - Always ask before committing.
