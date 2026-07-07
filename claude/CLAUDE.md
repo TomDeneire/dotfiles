@@ -93,6 +93,17 @@ Focus on intent and current state. Avoid historical references to past bugs.
 - Keep all tool configuration (ruff, ty, pytest) centralized in `pyproject.toml` rather than scattered config files.
 - Prefer `pathlib` over `os.path` for filesystem path handling.
 
+### Go
+
+- Always format code with `gofmt`/`goimports` — non-negotiable, no style debates.
+- Use `golangci-lint` (aggregates `go vet`, `staticcheck`, etc.) as the standard linter.
+- Handle errors explicitly with `if err != nil`; wrap with `fmt.Errorf("...: %w", err)` for context; never silently swallow errors.
+- Use the standard library `testing` package with table-driven tests; no external assertion library (no `testify`).
+- Doc comments start with the identifier name (e.g. `// FuncName does X`) so `go doc`/godoc render correctly.
+- Use `go mod` for module and dependency management.
+- Use idiomatic short names for local scope; capitalize exported identifiers and give them doc comments.
+- Follow standard Go project layout: `cmd/` for entrypoints, `internal/` for private packages, `pkg/` for exported/reusable packages.
+
 ## Git
 
 - Always ask before committing.
