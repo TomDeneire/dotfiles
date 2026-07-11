@@ -5,6 +5,5 @@ adjust-cell-height = 20%
 gtk-tabs-location = hidden
 copy-on-select = clipboard
 window-theme = ghostty
-background-opacity = 0.95
 bold-is-bright = true
 font-codepoint-map = U+26A1=Noto Color Emoji
