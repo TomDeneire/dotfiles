@@ -169,9 +169,11 @@ mkdir -p "$HOME/projects/code/go"
 git clone https://github.com/joshmedeski/sesh "$HOME/projects/code/go/sesh"
 (cd "$HOME/projects/code/go/sesh" && go install)
 
-## Uv for Python
+## Uv for Python (+ tools)
 print_header "Installing uv"
 curl -LsSf https://astral.sh/uv/install.sh | sh
+uv tool install ty@latest
+uv tool install ruff@latest
 
 ## Rust
 print_header "Installing Rust"
