@@ -98,7 +98,26 @@ alias cd..='cd ..'
 alias P='cd ~/projects/'
 alias top='btop'
 alias tt='source /home/tdeneire/projects/code/bash/tt'
-alias nvimg='nvim $(git diff --name-only)'
+
+function nvimg {
+    if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        local git_root
+        git_root=$(\git rev-parse --show-toplevel)
+
+        # We checken eerst of er überhaupt wijzigingen zijn
+        if [ -n "$(cd "$git_root" && \git status --porcelain)" ]; then
+            # xargs -o zorgt ervoor dat Neovim de controle over de TTY (terminal) behoudt
+            (cd "$git_root" && {
+                \git diff --name-only --no-color
+                \git ls-files --others --exclude-standard
+            } | sort -u | xargs -o nvim)
+        else
+            echo "Geen gewijzigde of nieuwe bestanden gevonden."
+        fi
+    else
+        echo "Fout: Geen git repository gevonden."
+    fi
+}
 
 cd() {
     builtin cd "$@" && l
