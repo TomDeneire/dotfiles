@@ -40,7 +40,7 @@ battery_status() {
 }
 
 git_status() {
-    MYSTATUS=$(git status -sb --untracked-files=no --ignore-submodules 2>/dev/null | awk '
+    MYSTATUS=$(git status -sb --ignore-submodules 2>/dev/null | awk '
     /^##/ { branch = substr($0, 4) }
     /^[^#]/ { count++ }
     END { if (count > 0) printf("%s *%d", branch, count); else printf("%s", branch)}
