@@ -3,7 +3,6 @@
     "allow": [
       "WebFetch(domain:*)",
       "Read(**)",
-      "Glob(**)",
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
