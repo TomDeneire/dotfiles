@@ -52,6 +52,7 @@
       "Bash(uv pip:*)"
     ]
   },
+  "cleanupPerioDays": 365,
   "statusLine": {
     "type": "command",
     "command": "bash /home/tdeneire/.claude/statusline-command.sh"
