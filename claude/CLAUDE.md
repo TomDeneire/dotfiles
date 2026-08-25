@@ -110,3 +110,4 @@ Focus on intent and current state. Avoid historical references to past bugs.
 - When the user starts asking about a new feature and the previous one is uncommitted, ask if they want to commit first.
 - Always use the format `(commit type): description` for commits.
 - Use one of the following commit types: (feat), (fix), (bug), (chore), (refactor), (style), (doc), (sec), (perf)
+- Always state yourself, Claude, as co-author `Co-Authored-By: Claude <noreply@anthropic.com>`.
