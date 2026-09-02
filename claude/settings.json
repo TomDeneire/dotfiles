@@ -52,7 +52,6 @@
       "Bash(uv pip:*)"
     ]
   },
-  "cleanupPerioDays": 365,
   "statusLine": {
     "type": "command",
     "command": "bash /home/tdeneire/.claude/statusline-command.sh"
@@ -75,5 +74,19 @@
   "effortLevel": "medium",
   "tui": "fullscreen",
   "theme": "dark-ansi",
-  "skipAutoPermissionPrompt": true
+  "cleanupPerioDays": 365,
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; [ -n \"$f\" ] && [ -f \"$f\" ] && nvim --headless \"$f\" +'silent! write!' +'qa!'; } 2>/dev/null || true",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
 }
