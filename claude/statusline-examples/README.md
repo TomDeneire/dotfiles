@@ -18,6 +18,48 @@ command — see [the docs](https://code.claude.com/docs/en/statusline).
 | `09-unixporn-maximalist.sh` | Boxed widget, Nerd Font icons for everything, a real battery reading pulled from `/sys/class/power_supply`, one flex line. |
 | `10-playful-cat.sh`         | A kaomoji cat whose mood changes with context usage — purring at low %, side-eyeing you as it climbs, dead at 85%+.        |
 
+## Screenshots
+
+### `01-minimal.sh`
+
+![01-minimal.sh](01-minimal.png)
+
+### `02-nerdfont-icons.sh`
+
+![02-nerdfont-icons.sh](02-nerdfont-icons.png)
+
+### `03-powerline.sh`
+
+![03-powerline.sh](03-powerline.png)
+
+### `04-cyberpunk.sh`
+
+![04-cyberpunk.sh](04-cyberpunk.png)
+
+### `05-elegant-pastel.sh`
+
+![05-elegant-pastel.sh](05-elegant-pastel.png)
+
+### `06-retro-terminal.sh`
+
+![06-retro-terminal.sh](06-retro-terminal.png)
+
+### `07-dashboard-verbose.sh`
+
+![07-dashboard-verbose.sh](07-dashboard-verbose.png)
+
+### `08-git-focused.sh`
+
+![08-git-focused.sh](08-git-focused.png)
+
+### `09-unixporn-maximalist.sh`
+
+![09-unixporn-maximalist.sh](09-unixporn-maximalist.png)
+
+### `10-playful-cat.sh`
+
+![10-playful-cat.sh](10-playful-cat.png)
+
 ## Try one
 
 ```bash
