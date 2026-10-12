@@ -1,92 +1,92 @@
 {
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:*)",
-      "Read(**)",
-      "Bash(gh pr view:*)",
-      "Bash(gh pr diff:*)",
-      "Bash(gh pr list:*)",
-      "Bash(gh issue view:*)",
-      "Bash(gh issue list:*)",
-      "Bash(gh repo view:*)",
-      "Bash(gh status:*)",
-      "Bash(gh api:*)",
-      "WebSearch",
-      "WebFetch",
-      "Bash(ls:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
-      "Bash(rg:*)",
-      "Bash(cat:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(wc:*)",
-      "Bash(which:*)",
-      "Bash(pwd:*)",
-      "Bash(tree:*)",
-      "Bash(echo:*)",
-      "Bash(gh:*)",
-      "Bash(git status:*)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git show:*)",
-      "Bash(git show-ref:*)",
-      "Bash(git branch:*)",
-      "Bash(git branch -v:*)",
-      "Bash(git remote:*)",
-      "Bash(git remote -v:*)",
-      "Bash(git rev-parse:*)",
-      "Bash(nvim --version:*)",
-      "Bash(node --version:*)",
-      "Bash(node:*)",
-      "Bash(npm list:*)",
-      "Bash(npm:*)",
-      "Bash(dotnet build:*)",
-      "Bash(dotnet run:*)",
-      "Bash(dotnet ef:*)",
-      "Bash(go build:*)",
-      "Bash(go run:*)",
-      "Bash(uv run:*)",
-      "Bash(uv sync:*)",
-      "Bash(uv add:*)",
-      "Bash(uv pip:*)"
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /home/tdeneire/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
-    }
-  },
-  "effortLevel": "medium",
-  "tui": "fullscreen",
-  "theme": "dark-ansi",
-  "cleanupPerioDays": 365,
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; [ -n \"$f\" ] && [ -f \"$f\" ] && nvim --headless \"$f\" +'silent! write!' +'qa!'; } 2>/dev/null || true",
-            "timeout": 15
-          }
+    "permissions": {
+        "allow": [
+            "WebFetch(domain:*)",
+            "Read(**)",
+            "Bash(gh pr view:*)",
+            "Bash(gh pr diff:*)",
+            "Bash(gh pr list:*)",
+            "Bash(gh issue view:*)",
+            "Bash(gh issue list:*)",
+            "Bash(gh repo view:*)",
+            "Bash(gh status:*)",
+            "Bash(gh api:*)",
+            "WebSearch",
+            "WebFetch",
+            "Bash(ls:*)",
+            "Bash(find:*)",
+            "Bash(grep:*)",
+            "Bash(rg:*)",
+            "Bash(cat:*)",
+            "Bash(head:*)",
+            "Bash(tail:*)",
+            "Bash(wc:*)",
+            "Bash(which:*)",
+            "Bash(pwd:*)",
+            "Bash(tree:*)",
+            "Bash(echo:*)",
+            "Bash(gh:*)",
+            "Bash(git status:*)",
+            "Bash(git diff:*)",
+            "Bash(git log:*)",
+            "Bash(git show:*)",
+            "Bash(git show-ref:*)",
+            "Bash(git branch:*)",
+            "Bash(git branch -v:*)",
+            "Bash(git remote:*)",
+            "Bash(git remote -v:*)",
+            "Bash(git rev-parse:*)",
+            "Bash(nvim --version:*)",
+            "Bash(node --version:*)",
+            "Bash(node:*)",
+            "Bash(npm list:*)",
+            "Bash(npm:*)",
+            "Bash(dotnet build:*)",
+            "Bash(dotnet run:*)",
+            "Bash(dotnet ef:*)",
+            "Bash(go build:*)",
+            "Bash(go run:*)",
+            "Bash(uv run:*)",
+            "Bash(uv sync:*)",
+            "Bash(uv add:*)",
+            "Bash(uv pip:*)"
         ]
-      }
-    ]
-  }
+    },
+    "hooks": {
+        "PostToolUse": [
+            {
+                "matcher": "Write|Edit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; [ -n \"$f\" ] && [ -f \"$f\" ] && nvim --headless \"$f\" +'silent! write!' +'qa!'; } 2>/dev/null || true",
+                        "timeout": 15
+                    }
+                ]
+            }
+        ]
+    },
+    "enabledPlugins": {
+        "frontend-design@claude-plugins-official": true,
+        "gopls-lsp@claude-plugins-official": true,
+        "skill-creator@claude-plugins-official": true,
+        "pyright-lsp@claude-plugins-official": true,
+        "lua-lsp@claude-plugins-official": true
+    },
+    "extraKnownMarketplaces": {
+        "claude-code-plugins": {
+            "source": {
+                "source": "github",
+                "repo": "anthropics/claude-code"
+            }
+        }
+    },
+    "statusLine": {
+        "type": "command",
+        "command": "bash /home/tdeneire/.claude/statusline-command.sh"
+    },
+    "effortLevel": "medium",
+    "tui": "fullscreen",
+    "theme": "dark-ansi",
+    "cleanupPeriodDays": 365
 }
