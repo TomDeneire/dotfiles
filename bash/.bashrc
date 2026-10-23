@@ -89,13 +89,15 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias rm='gio trash'
 alias cat="batcat --style=plain"
+alias B='cd $HOME/.local/share/Trash/files'
 alias C='cd $HOME/projects/code'
 alias D='cd $HOME/Desktop'
 alias Do='cd $HOME/Downloads'
+alias Dc='cd $HOME/Documents'
+alias P='cd $HOME/projects/'
 alias T='cd $HOME/tmp'
 alias W='cd $HOME/projects/websites'
 alias cd..='cd ..'
-alias P='cd $HOME/projects/'
 alias top='btop'
 alias tt='source /home/tdeneire/projects/code/bash/tt'
 
@@ -142,4 +144,3 @@ eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
 . "$HOME/.atuin/bin/env"
-
