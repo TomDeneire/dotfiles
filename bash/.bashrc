@@ -87,7 +87,6 @@ alias l='ls -lAh --color=always'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias rm='gio trash'
 alias cat="batcat --style=plain"
 alias B='cd $HOME/.local/share/Trash/files'
 alias C='cd $HOME/projects/code'
@@ -100,6 +99,16 @@ alias W='cd $HOME/projects/websites'
 alias cd..='cd ..'
 alias top='btop'
 alias tt='source /home/tdeneire/projects/code/bash/tt'
+
+# Move files to the trash, ignoring rm flags (-r, -f, --) that gio trash does not accept
+rm() {
+    local arg
+    local args=()
+    for arg in "$@"; do
+        [[ $arg =~ ^-[rRf]+$ || $arg == --recursive || $arg == --force || $arg == -- ]] || args+=("$arg")
+    done
+    gio trash "${args[@]}"
+}
 
 clip() {
     eval "$(history -p '!!')" | xclip -selection clipboard >/dev/null 2>&1
