@@ -13,7 +13,7 @@ esac
 
 j() {
     local dir
-    dir="$(/home/tdeneire/projects/code/rust/djump/target/release/djump)"
+    dir="$("$HOME/projects/code/rust/djump/target/release/djump")"
     if [ -n "$dir" ] && [ "$dir" != "$(pwd)" ]; then
         cd "$dir" || return
     fi
@@ -70,7 +70,7 @@ alias T='cd $HOME/tmp'
 alias W='cd $HOME/projects/websites'
 alias cd..='cd ..'
 alias top='btop'
-alias tt='source /home/tdeneire/projects/code/bash/tt'
+alias tt='source $HOME/projects/code/bash/tt'
 
 # Move files to the trash, ignoring rm flags (-r, -f, --) that gio trash does not accept
 rm() {
