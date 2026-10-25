@@ -115,24 +115,27 @@ clip() {
     xclip -selection clipboard >/dev/null
 }
 
+# Open all modified (staged or unstaged) and untracked files of the current git repo in nvim
 nvimg() {
-    if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-        local git_root
-        git_root=$(\git rev-parse --show-toplevel)
-
-        # We checken eerst of er überhaupt wijzigingen zijn
-        if [ -n "$(cd "$git_root" && \git status --porcelain)" ]; then
-            # xargs -o zorgt ervoor dat Neovim de controle over de TTY (terminal) behoudt
-            (cd "$git_root" && {
-                \git diff --name-only --no-color
-                \git ls-files --others --exclude-standard
-            } | sort -u | xargs -o nvim)
-        else
-            echo "Geen gewijzigde of nieuwe bestanden gevonden."
-        fi
-    else
-        echo "Fout: Geen git repository gevonden."
+    local git_root files
+    if ! git_root=$(git rev-parse --show-toplevel 2>/dev/null); then
+        echo "nvimg: not inside a git repository" >&2
+        return 1
     fi
+
+    # Deleted files are excluded, since there is nothing left to edit
+    files=$({
+        git -C "$git_root" diff HEAD --name-only --diff-filter=d --no-color 2>/dev/null
+        git -C "$git_root" ls-files --others --exclude-standard
+    } | sort -u)
+
+    if [ -z "$files" ]; then
+        echo "nvimg: no modified or untracked files"
+        return 0
+    fi
+
+    # xargs -o reopens the terminal as stdin so nvim keeps control of the TTY
+    (builtin cd "$git_root" && xargs -o -d '\n' nvim <<<"$files")
 }
 
 cd() {
