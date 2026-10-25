@@ -15,11 +15,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color | *-256color | xterm-kitty | xterm-ghostty ) color_prompt=yes ;;
-esac
-
 j() {
     local dir
     dir="$(/home/tdeneire/projects/code/rust/djump/target/release/djump)"
@@ -61,13 +56,7 @@ STATIC_BLUE="${blue_bold}"
 STATIC_CLEAR="${clear}"
 
 # Prompt
-if [ "$color_prompt" = yes ]; then
-    PS1="\n${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
-else
-    PS1='\u@\h:\w\$ '
-fi
-
-unset color_prompt
+PS1="\n${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
