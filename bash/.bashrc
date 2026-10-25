@@ -110,8 +110,9 @@ rm() {
     gio trash "${args[@]}"
 }
 
+# Copy stdin to the clipboard, e.g. `ls | clip`
 clip() {
-    eval "$(history -p '!!')" | xclip -selection clipboard >/dev/null 2>&1
+    xclip -selection clipboard >/dev/null
 }
 
 nvimg() {
