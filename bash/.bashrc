@@ -141,7 +141,6 @@ for dir in /snap/bin "$HOME/go/bin" "$HOME/projects/code/bash" "$HOME/bin" "$HOM
 done
 unset dir
 export PATH
-export PYTHONPATH="$HOME/py3"
 export EDITOR='nvim'
 
 # Zoxide
