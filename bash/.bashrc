@@ -101,7 +101,10 @@ alias cd..='cd ..'
 alias top='btop'
 alias tt='source /home/tdeneire/projects/code/bash/tt'
 
-function nvimg {
+clip() {
+    eval "$(history -p '!!')" | xclip -selection clipboard >/dev/null 2>&1
+}
+
 nvimg() {
     if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
         local git_root
