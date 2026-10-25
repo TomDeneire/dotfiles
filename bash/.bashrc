@@ -112,9 +112,9 @@ rm() {
     gio trash "${args[@]}"
 }
 
-# Copy stdin to the clipboard, e.g. `ls | clip`
+# Rerun the previous command and copy its output to the clipboard, e.g. `pwd` then `clip`
 clip() {
-    xclip -selection clipboard >/dev/null
+    eval "$(history -p '!!')" | xclip -selection clipboard >/dev/null 2>&1
 }
 
 # Open all modified (staged or unstaged) and untracked files of the current git repo in nvim
