@@ -49,13 +49,11 @@ MYHOST=$(. /etc/os-release && echo "$PRETTY_NAME")
 PS1="\n${green_bold}\u${clear} on $MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
 unset green_bold blue_bold clear
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias grep='grep --color=auto'
-fi
+# Set LS_COLORS, used by lsd
+eval "$(dircolors -b)"
 
 # Aliases
+alias grep='grep --color=auto'
 alias ls='lsd'
 alias l='ls -lAh --color=always'
 alias ..='cd ..'
