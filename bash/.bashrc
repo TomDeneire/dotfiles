@@ -49,14 +49,9 @@ clear='\[\e[00m\]'
 . /etc/os-release
 MYHOST="$PRETTY_NAME"
 
-# Precompute static prompt components
-STATIC_USER="${green_bold}\u${clear}"
-STATIC_ON="on $MYHOST"
-STATIC_BLUE="${blue_bold}"
-STATIC_CLEAR="${clear}"
-
 # Prompt
-PS1="\n${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
+PS1="\n${green_bold}\u${clear} on $MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
+unset green_bold blue_bold clear
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
