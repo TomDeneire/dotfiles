@@ -130,7 +130,17 @@ cd() {
 }
 
 # Environment variables
-export PATH="$HOME/.local/bin:$HOME/bin:$HOME/projects/code/bash:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/go/bin:/snap/bin"
+path_prepend() {
+    case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$1:$PATH" ;;
+    esac
+}
+for dir in /snap/bin "$HOME/go/bin" "$HOME/projects/code/bash" "$HOME/bin" "$HOME/.local/bin"; do
+    path_prepend "$dir"
+done
+unset dir
+export PATH
 export PYTHONPATH="$HOME/py3"
 export EDITOR='nvim'
 
