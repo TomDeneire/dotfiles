@@ -142,7 +142,4 @@ eval "$(zoxide init bash)"
 
 # Atuin
 [[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
-export ATUIN_NOBIND="true"
-eval "$(atuin init bash)"
-# bind to ctrl-r, add any other bindings you want here too
-bind -x '"\C-r": __atuin_history'
+eval "$(atuin init bash --disable-up-arrow --disable-ai)"
