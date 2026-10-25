@@ -116,15 +116,18 @@ ln -sf "$HOME/projects/nvim" "$HOME/.config/nvim"
 
 ### npm/node
 print_header "Installing npm/node"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh"
-nvm install --lts
-nvm alias default lts/*
+NODE_VERSION="v24.22.1"  # LTS, see https://nodejs.org/en/about/previous-releases
+curl -LO "https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.xz"
+tar -xJf "node-$NODE_VERSION-linux-x64.tar.xz"
+mv "node-$NODE_VERSION-linux-x64" "$HOME/node"
+for bin in node npm npx; do
+    ln -sf "$HOME/node/bin/$bin" "$HOME/bin/$bin"
+done
 
 ### tree-sitter-cli
 print_header "Installing tree-sitter-cli"
 npm install -g tree-sitter-cli
+ln -sf "$HOME/node/bin/tree-sitter" "$HOME/bin/tree-sitter"
 
 ### Python support
 print_header "Installing Python support for Neovim"
