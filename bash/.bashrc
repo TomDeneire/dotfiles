@@ -15,11 +15,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 xterm-color | *-256color | xterm-kitty | xterm-ghostty ) color_prompt=yes ;;
@@ -60,7 +55,6 @@ clear='\[\e[00m\]'
 MYHOST="$PRETTY_NAME"
 
 # Precompute static prompt components
-STATIC_DEBIAN_CHROOT=${debian_chroot:+($debian_chroot)}
 STATIC_USER="${green_bold}\u${clear}"
 STATIC_ON="on $MYHOST"
 STATIC_BLUE="${blue_bold}"
@@ -68,9 +62,9 @@ STATIC_CLEAR="${clear}"
 
 # Prompt
 if [ "$color_prompt" = yes ]; then
-    PS1="\n${STATIC_DEBIAN_CHROOT}${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
+    PS1="\n${STATIC_USER} ${STATIC_ON} \$(battery_status)${STATIC_BLUE} \w${STATIC_CLEAR} \$(git_status)\n⚡ "
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\u@\h:\w\$ '
 fi
 
 unset color_prompt
