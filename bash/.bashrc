@@ -156,6 +156,9 @@ unset dir
 export PATH
 export EDITOR='nvim'
 
+# Programmable completion
+[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+
 # Zoxide
 export _ZO_RESOLVE_SYMLINKS=1
 eval "$(zoxide init bash)"
