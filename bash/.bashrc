@@ -151,6 +151,5 @@ export NVM_DIR="$HOME/.nvm"
 export _ZO_RESOLVE_SYMLINKS=1
 eval "$(zoxide init bash)"
 
-# Atuin (last, since it hooks into the prompt through bash-preexec)
-[ -f "$HOME/.bash-preexec.sh" ] && . "$HOME/.bash-preexec.sh"
+# Atuin (last, since it hooks into the prompt through its bundled bash-preexec)
 eval "$(atuin init bash --disable-up-arrow --disable-ai)"

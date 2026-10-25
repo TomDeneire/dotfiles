@@ -41,7 +41,6 @@ ln -sf "$HOME/projects/dotfiles/git" "$HOME/.config/git"
 print_header "Configuring bash"
 rm -f "$HOME/.bashrc"
 ln -sf "$HOME/projects/dotfiles/bash/.bashrc" "$HOME/.bashrc"
-ln -sf "$HOME/projects/dotfiles/bash/.bash-preexec.sh" "$HOME/.bash-preexec.sh"
 
 ## General tools
 print_header "Installing general tools"
