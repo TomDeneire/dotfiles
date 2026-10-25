@@ -46,8 +46,7 @@ blue_bold='\[\e[01;34m\]'
 clear='\[\e[00m\]'
 
 # OS name (static, computed once)
-. /etc/os-release
-MYHOST="$PRETTY_NAME"
+MYHOST=$(. /etc/os-release && echo "$PRETTY_NAME")
 
 # Prompt
 PS1="\n${green_bold}\u${clear} on $MYHOST \$(battery_status)${blue_bold} \w${clear} \$(git_status)\n⚡ "
