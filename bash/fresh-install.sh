@@ -85,7 +85,6 @@ export PATH="$PATH:$HOME/.local/bin"
 print_header "Installing atuin"
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 source "$HOME/.atuin/bin/env"
-ln -sf "$HOME/projects/dotfiles/bash/.bash_profile" "$HOME/.bash_profile"
 
 ## lazygit
 print_header "Installing lazygit"
