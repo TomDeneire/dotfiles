@@ -30,6 +30,7 @@ battery_status() {
 }
 
 git_status() {
+    local MYSTATUS
     MYSTATUS=$(git status -sb --ignore-submodules 2>/dev/null | awk '
     /^##/ { branch = substr($0, 4) }
     /^[^#]/ { count++ }
