@@ -136,7 +136,7 @@ path_prepend() {
     *) PATH="$1:$PATH" ;;
     esac
 }
-for dir in /snap/bin "$HOME/go/bin" "$HOME/projects/code/bash" "$HOME/bin" "$HOME/.local/bin"; do
+for dir in /snap/bin "$HOME/go/bin" "$HOME/projects/code/bash" "$HOME/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.atuin/bin"; do
     path_prepend "$dir"
 done
 unset dir
@@ -148,13 +148,9 @@ export EDITOR='nvim'
 export _ZO_RESOLVE_SYMLINKS=1
 eval "$(zoxide init bash)"
 
-# Cargo
-. "$HOME/.cargo/env"
-
 # Atuin
 [[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
 export ATUIN_NOBIND="true"
 eval "$(atuin init bash)"
 # bind to ctrl-r, add any other bindings you want here too
 bind -x '"\C-r": __atuin_history'
-. "$HOME/.atuin/bin/env"
