@@ -102,12 +102,19 @@ j() {
     fi
 }
 
-# Move files to the trash, ignoring rm flags (-r, -f, --) that gio trash does not accept
+# Move files to the trash, ignoring rm flags (-r, -f, --)
+# that gio trash does not accept
 rm() {
     local arg
     local args=()
     for arg in "$@"; do
-        [[ $arg =~ ^-[rRf]+$ || $arg == --recursive || $arg == --force || $arg == -- ]] || args+=("$arg")
+        if [[ $arg =~ ^-[rRf]+$ ]] ||
+           [[ $arg == "--recursive" ]] ||
+           [[ $arg == "--force" ]] ||
+           [[ $arg == "--" ]]; then
+            continue
+        fi
+        args+=("$arg")
     done
     gio trash "${args[@]}"
 }
