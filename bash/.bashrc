@@ -93,6 +93,39 @@ cd() {
     builtin cd "$@" && l
 }
 
+# List a large directory compactly in as many columns as fit the terminal,
+# shortening names longer than 15 characters to their start and end (e.g. another..ame.py)
+ll() {
+    \ls -1 | \
+    awk -v width="$(tput cols)" '
+    {
+        if (length > 15)
+            names[NR] = substr($0, 1, 7) ".." substr($0, length-5);
+        else
+            names[NR] = $0;
+        if (length(names[NR]) > max)
+            max = length(names[NR]);
+    }
+    # Lay out top to bottom like ls, with at least two spaces between columns
+    END {
+        colwidth = max + 2;
+        cols = int((width + 2) / colwidth);
+        if (cols < 1)
+            cols = 1;
+        rows = int((NR + cols - 1) / cols);
+        for (r = 1; r <= rows; r++) {
+            line = "";
+            for (c = 0; c < cols; c++) {
+                i = c * rows + r;
+                if (i <= NR)
+                    line = line sprintf("%-*s", colwidth, names[i]);
+            }
+            sub(/ +$/, "", line);
+            print line;
+        }
+    }'
+}
+
 # Jump to a directory picked with djump
 j() {
     local dir
