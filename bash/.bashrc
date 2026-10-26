@@ -119,35 +119,6 @@ rm() {
     gio trash "${args[@]}"
 }
 
-# Rerun the previous command and copy its output to the clipboard, e.g. `pwd` then `clip`.
-# Asks for confirmation unless the command is known to be read-only.
-clip() {
-    local cmd first second reply safe=
-    cmd=$(history -p '!!')
-    read -r first second _ <<<"$cmd"
-
-    case "$cmd" in
-    # Chained commands, pipes and redirections can hide side effects
-    *[\;\&\|\>\<\`]* | *'$('*) ;;
-    *)
-        case "$first" in
-        pwd | ls | l | cat | echo | which | type | date | whoami | hostname | uname | wc | head | grep | tree | du | df) safe=1 ;;
-        git)
-            case "$second" in
-            status | log | diff | show) safe=1 ;;
-            esac
-            ;;
-        esac
-        ;;
-    esac
-
-    if [ -z "$safe" ]; then
-        read -r -p "Rerun '$cmd'? [y/N] " reply
-        [[ $reply == [yY] ]] || return 1
-    fi
-    eval "$cmd" | xclip -selection clipboard >/dev/null 2>&1
-}
-
 # Open all modified (staged or unstaged) and untracked files of the current git repo in nvim
 nvimg() {
     local git_root files
