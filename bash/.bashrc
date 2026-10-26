@@ -119,7 +119,8 @@ rm() {
     gio trash "${args[@]}"
 }
 
-# Open all modified (staged or unstaged) and untracked files of the current git repo in nvim
+# Open all modified (staged or unstaged) and untracked files
+# of the current git repo in nvim
 nvimg() {
     local git_root files
     if ! git_root=$(git rev-parse --show-toplevel 2>/dev/null); then
@@ -129,8 +130,13 @@ nvimg() {
 
     # Deleted files are excluded, since there is nothing left to edit
     files=$({
-        git -C "$git_root" diff HEAD --name-only --diff-filter=d --no-color 2>/dev/null
-        git -C "$git_root" ls-files --others --exclude-standard
+        git -C "$git_root" diff HEAD \
+            --name-only \
+            --diff-filter=d \
+            --no-color 2>/dev/null
+        git -C "$git_root" ls-files \
+            --others \
+            --exclude-standard
     } | sort -u)
 
     if [ -z "$files" ]; then
@@ -138,8 +144,12 @@ nvimg() {
         return 0
     fi
 
-    # xargs -o reopens the terminal as stdin so nvim keeps control of the TTY
-    (builtin cd "$git_root" && xargs -o -d '\n' nvim <<<"$files")
+    # xargs -o reopens the terminal as stdin
+    # so nvim keeps control of the TTY
+    (
+        builtin cd "$git_root" && \
+        xargs -o -d '\n' nvim <<<"$files"
+    )
 }
 
 # === Tools ===
