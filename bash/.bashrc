@@ -130,6 +130,22 @@ ll() {
     }'
 }
 
+# Put a command output in the clipboard (e.g. `pwd | c`)
+c() {
+    if command -v xclip >/dev/null 2>&1; then
+        printf '%s' "$(cat)" | xclip -selection clipboard
+    elif command -v pbcopy >/dev/null 2>&1; then
+        printf '%s' "$(cat)" | pbcopy
+    elif command -v wl-copy >/dev/null 2>&1; then
+        printf '%s' "$(cat)" | wl-copy
+    elif command -v xsel >/dev/null 2>&1; then
+        printf '%s' "$(cat)" | xsel --clipboard --inpu
+    else
+        echo "c: no clipboard tool found" >&2
+        return 1
+    fi
+}
+
 # Jump to a directory picked with djump
 j() {
     local dir
