@@ -102,30 +102,37 @@ cd() {
 ll() {
     \ls -1 | \
     awk -v width="$(tput cols)" '
-    {
-        if (length > 15)
-            names[NR] = substr($0, 1, 7) ".." substr($0, length-5);
-        else
-            names[NR] = $0;
-        if (length(names[NR]) > max)
-            max = length(names[NR]);
+    function shorten(name,    dot, ext, base, tail) {
+        if (length(name) <= 15) return name
+        dot = match(name, /\.[^.]*$/)
+        if (dot > 0) {
+            ext = substr(name, dot)
+            base = substr(name, 1, dot - 1)
+            tail = substr(base, length(base) - 1) ext
+        } else {
+            tail = substr(name, length(name) - 1)
+        }
+        return substr(name, 1, 7) ".." tail
     }
-    # Lay out top to bottom like ls, with at least two spaces between columns
+    {
+        names[NR] = shorten($0)
+        if (length(names[NR]) > max)
+            max = length(names[NR])
+    }
     END {
-        colwidth = max + 2;
-        cols = int((width + 2) / colwidth);
-        if (cols < 1)
-            cols = 1;
-        rows = int((NR + cols - 1) / cols);
+        colwidth = max + 2
+        cols = int((width + 2) / colwidth)
+        if (cols < 1) cols = 1
+        rows = int((NR + cols - 1) / cols)
         for (r = 1; r <= rows; r++) {
-            line = "";
+            line = ""
             for (c = 0; c < cols; c++) {
-                i = c * rows + r;
+                i = c * rows + r
                 if (i <= NR)
-                    line = line sprintf("%-*s", colwidth, names[i]);
+                    line = line sprintf("%-*s", colwidth, names[i])
             }
-            sub(/ +$/, "", line);
-            print line;
+            sub(/ +$/, "", line)
+            print line
         }
     }'
 }
