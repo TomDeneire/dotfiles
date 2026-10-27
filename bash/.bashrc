@@ -62,12 +62,16 @@ unset green_bold blue_bold clear
 
 # === Aliases ===
 
-# Replacement tools
+# Replacement tools and more sane defaults
 alias ls='lsd'
 alias l='ls -lAh --color=always'
-alias cat="batcat --style=plain"
+alias cat='batcat --style=plain'
 alias top='btop'
 alias grep='grep --color=auto'
+alias df='df -h'
+alias du='du -h'
+alias ping='ping -c 5'
+alias mkdir='mkdir -p'
 
 # Navigation
 alias ..='cd ..'
