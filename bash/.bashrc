@@ -64,7 +64,7 @@ unset green_bold blue_bold clear
 
 # Replacement tools and more sane defaults
 alias ls='lsd'
-alias l='ls -lAh --color=always'
+alias l='ls -lAh --color=auto'
 alias cat='batcat --style=plain'
 alias top='btop'
 alias grep='grep --color=auto'
